@@ -130,6 +130,7 @@ body{
   background-color: #231f20;
   background-color: green;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #ffffff;
 }
 
 a{
@@ -141,6 +142,8 @@ header{
   padding-bottom: 47px;
   background-image: url(../img/sombra.png);
   background-position:center bottom;
+  position: relative;
+  z-index: 2;
 }
 
 header .bg{
@@ -148,7 +151,8 @@ header .bg{
   height:171px;
   background-color:#ffffff;
 }
-header .content{
+header .content,
+#content{
   margin: auto;
   width:1088px;
 }
@@ -182,9 +186,10 @@ header nav ul li a{
   background-color: #fff;
 }
 header nav ul li.active,
-header nav ul li:hover{
-  background: #ed1941; /*vermelho da bola do logo*/
-  background-color: rgba(237,25,65,0.9);
+header nav ul li:hover,
+#content aside{
+  background: #ee1941; /*vermelho da bola do logo*/
+  background-color: rgba(238, 25, 65, 0.9);
 }
 
 #instagram-icon {
@@ -194,6 +199,43 @@ header nav ul li:hover{
   float: left;
   background-image: url(../img/instagram.png);
   background-position: 0px bottom;
+}
+
+#content{
+  position:relative;
+}
+
+#content aside{
+  position: absolute;
+  top: -27px;
+  display: none;
+}
+#content aside.opened{
+  display: block;
+}
+#content #projeto{
+/*458 .. 527*/
+  left: 444px;
+}
+#content #casa{
+/*537 .. 620*/
+  left:523px;
+}
+#content #regulamento{
+/*630 .. 729*/
+  left:616px;
+}
+#content #coletivos{
+/*739 .. 823*/
+  left: 725px;
+}
+#content #inauguracao{
+/*833 .. 926*/
+  left: 819px;
+}
+#content #contato{
+/*936 .. 1005*/
+  left: 922px;
 }
 
 
