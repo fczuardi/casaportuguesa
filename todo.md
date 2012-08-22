@@ -6,6 +6,8 @@
 - OK - cada balão pode ter largura e posicionamento diferente
 - OK - relogio funcionando em javascript
 
+- testar em IE9 e IE8
+- IE7 para baixo exibir chromeframe
 - adaptacao pro php prover quantos milisegundos faltam
 - para onde devem os links de facebook e twitter linkar?
 - botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
