@@ -1,0 +1,1 @@
+mv /home/iatacannabrava/casaportuguesa/locaweb.htaccess /home/iatacannabrava/casaportuguesa/.htaccess
