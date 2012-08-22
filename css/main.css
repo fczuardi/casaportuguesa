@@ -151,6 +151,7 @@ body{
 
 a{
   text-decoration: none;
+  color:white;
 }
 
 header{
@@ -328,6 +329,11 @@ header nav ul li.external:hover{
 #content #share,
 #content aside.opened{
   display: block;
+}
+
+#content aside a:hover{
+  text-decoration: underline;
+  color:#ffffff;
 }
 
 #content aside section{
