@@ -32,5 +32,6 @@ IE9, 8, 7, 6
 - OK - [ie8] Ícone do instagram está pulando de linha
   - OK - [ie8] Baloes sem foto estao dando uma margem no primeiro paragrafo
 - OK - [ie8] Vermelho do balão não tem opacidade
+- OK - [ie8] Icones do twitter e facebook aparecem bem fracos
 
 - [ie8] Bordas não arredondadas nos balões

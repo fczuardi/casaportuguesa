@@ -212,6 +212,9 @@ header nav ul li:hover,
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5EE1941,endColorstr=#E5EE1941);
   zoom: 1;
 }
+.lt-ie9 #content #share{
+  filter:none;
+}
 
 header nav ul li.external:hover{
   background: #009f4e;
