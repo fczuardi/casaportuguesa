@@ -312,8 +312,9 @@ header nav ul li:hover,
   position: relative;
   top: -27px;
   padding:28px;
-  padding-top: 22px;
-  padding-right: 22px;
+  padding-top: 9px;
+  padding-right: 29px;
+  padding-bottom: 12px;
   margin-bottom:100px;
   display: none;
   border-radius:0 0 30px 0;
@@ -328,6 +329,7 @@ header nav ul li:hover,
 #content aside section{
   width: 100%;
   display: table;
+  margin-bottom: -4px;
 }
 #content aside .foto{
   width:143px;
@@ -335,6 +337,7 @@ header nav ul li:hover,
   vertical-align: top;
   margin-right:20px;
   display: inline-block;
+  background-color: black;
 }
 
 #content aside .content{
@@ -385,7 +388,8 @@ header nav ul li:hover,
 }
 #content #regulamento{
 /*630 .. 729*/
-  left:616px;
+  left:37px;
+  width:957px;
 }
 #content #coletivos{
 /*739 .. 823*/
