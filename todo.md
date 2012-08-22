@@ -31,6 +31,6 @@ IE9, 8, 7, 6
 - OK - [ie9] balao de coletivos não respeita o alinhamento de foto e texto
 - OK - [ie8] Ícone do instagram está pulando de linha
   - OK - [ie8] Baloes sem foto estao dando uma margem no primeiro paragrafo
+- OK - [ie8] Vermelho do balão não tem opacidade
 
-- [ie8] Vermelho do balão não tem opacidade
 - [ie8] Bordas não arredondadas nos balões

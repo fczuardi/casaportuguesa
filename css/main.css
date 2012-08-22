@@ -205,9 +205,23 @@ header nav ul li:hover,
   background: #ee1941; /*vermelho da bola do logo*/
   background-color: rgba(238, 25, 65, 0.9);
 }
+.lt-ie9 header nav ul li.active,
+.lt-ie9 header nav ul li:hover,
+.lt-ie9 #content aside{
+  background:transparent;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5EE1941,endColorstr=#E5EE1941);
+  zoom: 1;
+}
+
 header nav ul li.external:hover{
   background: #009f4e;
   background-color: rgba(0, 159, 78, 0.9);
+}
+
+.lt-ie9 header nav ul li.external:hover{
+  background:transparent;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5009F4E,endColorstr=#E5009F4E);
+  zoom: 1;
 }
 
 #instagram-icon {
