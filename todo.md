@@ -25,9 +25,12 @@
 IE9, 8, 7, 6
 ============
 
-- OK - [ie8] [bug] Erro de Javascript no Date.now()
+- WONTFIX - [ie9] [ie8] [ie7] [ie6] [windows] Não pega Helvetica / Helvetica Light
 
-- [ie9] balao de coletivos não respeita o alinhamento de foto e texto
-- [wontfix] Não pega Helvetica / Helvetica Light
-- [bug] [ie8] Ícone do instagram está pulando de linha
-- [bug] [ie8] Bordas não arredondadas nos balões
+- OK - [ie8] [bug] Erro de Javascript no Date.now()
+- OK - [ie9] balao de coletivos não respeita o alinhamento de foto e texto
+- OK - [ie8] Ícone do instagram está pulando de linha
+  - OK - [ie8] Baloes sem foto estao dando uma margem no primeiro paragrafo
+
+- [ie8] Vermelho do balão não tem opacidade
+- [ie8] Bordas não arredondadas nos balões
