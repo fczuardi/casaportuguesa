@@ -204,6 +204,10 @@ header nav ul li:hover,
   background: #ee1941; /*vermelho da bola do logo*/
   background-color: rgba(238, 25, 65, 0.9);
 }
+header nav ul li.external:hover{
+  background: #009f4e;
+  background-color: rgba(0, 159, 78, 0.9);
+}
 
 #instagram-icon {
   width:55px;
@@ -337,13 +341,15 @@ header nav ul li:hover,
   vertical-align: top;
   margin-right:20px;
   display: inline-block;
-  background-color: black;
 }
 
 #content aside .content{
   display: table-cell;
 }
 
+#content aside h1{
+  /*margin-top: 10px;*/
+}
 #content aside h2{
   color:#83041c;
   margin-top: -3px;
@@ -388,11 +394,18 @@ header nav ul li:hover,
 }
 #content #regulamento{
 /*630 .. 729*/
-  left:37px;
-  width:957px;
+  left:417px;
+  width:585px;
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+#content #regulamento h1{
+  margin-top: 30px;
 }
 #content #coletivos{
 /*739 .. 823*/
+  padding-top: 20px;
+  padding-bottom: 20px;
   left: 572px;
   width:404px;
 }
