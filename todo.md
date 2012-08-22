@@ -5,6 +5,9 @@
 - OK - numeros com opacidade 80%
 - OK - cada balão pode ter largura e posicionamento diferente
 - OK - relogio funcionando em javascript
+- OK - incluir o link de inauguração do projeto (http://www.facebook.com/umacasaportuguesacomcerteza)
+- OK - incluir link para download do PDF
+- OK - leia/baixe o regulamento: 0. Baixe o regulamento - Clique aqui e baixe o regulamento para guardar, imprimir ou ler com calma
 
 - testar em IE9 e IE8
 - IE7 para baixo exibir chromeframe
@@ -13,9 +16,6 @@
 - botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
 - fazer balao fechar tambem quando vc clica fora dele
 
-- OK - incluir link para download do PDF
-- OK - leia/baixe o regulamento: 0. Baixe o regulamento - Clique aqui e baixe o regulamento para guardar, imprimir ou ler com calma
-- incluir o link de inauguração do projeto (http://www.facebook.com/umacasaportuguesacomcerteza)
 - criar HTML com PNG de como seria a promo funcional para o Iatã aprovar
 - colocar a frase antes do contador
 
