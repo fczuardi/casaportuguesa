@@ -109,7 +109,7 @@ textarea {
 body{
   /*background-image: url(../mockups/casaPortuguesa_v5_balloon.png);*/
   /*background-image: url(../mockups/casaPortuguesa_v7_contador_ballon_com_foto.jpg);*/
-  background-image: url(../mockups/casaPortuguesa_v7_contador.jpg);
+  /*background-image: url(../mockups/casaPortuguesa_v7_contador.jpg);*/
 }
 #content #contador .digit,
 #content aside,
@@ -126,6 +126,7 @@ body,
 header,
 header .logo,
 #instagram-icon,
+#content #share,
 #content #contador .digit,
 #content #contador .digit hr {
   background-repeat: no-repeat;
@@ -135,6 +136,7 @@ header .logo,
 header nav ul,
 #content #contador .digit p,
 #content #contador .digit hr,
+#content #share ul,
 #content aside h1,
 #content aside h2{
   margin:0;
@@ -143,7 +145,6 @@ header nav ul,
 body{
   background-position: top center;
   background-color: #231f20;
-  background-color: green;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #ffffff;
 }
@@ -216,53 +217,92 @@ header nav ul li:hover,
   position:relative;
 }
 
-#content #contador{
+#main{
+  position: absolute;
+  min-height: 700px;
+  width: 100%;
+}
+#main #contador{
   width:1033px;
   height:504px;
   margin:auto;
   margin-top:-23px;
+  margin-bottom: 35px;
 }
-#content #contador .digit hr,
-#content #contador .digit{
+#main #contador .digit hr,
+#main #contador .digit{
   width:248px;
   height:504px;
 }
-#content #contador .digit{
+#main #contador .digit{
   width:248px;
   height:504px;
   background-image: url(../img/base_contador.png);
   float: left;
   margin-left: 8px;
+  position: relative;
+}
+#main #contador .digit p{
+  text-align: center;
   font-size: 438px;
   line-height: 481px;
   font-weight: bold;
-  position: relative;
+  color: #ffffff;
 }
-#content #contador .digit p{
-  text-align: center;
-}
-#content #contador .digit hr{
+#main #contador .digit hr{
   position: absolute;
   top: 0;
   border: none;
   background-image: url(../img/tapa-numero.png);
 }
-#content #contador .digit .top-text,
-#content #contador .digit .bottom-text{
+#main #contador .digit .top-text,
+#main #contador .digit .bottom-text{
   position: absolute;
   font-weight: normal;
 }
-#content #contador .digit .top-text{
+#main #contador .digit .top-text{
   font-size: 24px;
   line-height: 24px;
   top: 29px;
   left: 38px;
+  opacity: 0.5;
 }
-#content #contador .digit .bottom-text{
+#main #contador .digit .bottom-text{
   font-size: 36px;
   line-height: 36px;
   bottom: 15px;
   right: 17px;
+  opacity: 0.9;
+}
+#main h2,
+#main p,
+#content aside h1{
+  font-weight: lighter;
+  letter-spacing:1px;
+}
+#main h2,
+#content aside h1{
+  font-size: 26px;
+  line-height: 26px;
+}
+#main h2,
+#main p {
+  margin-left:52px;
+}
+#main h2{
+  margin-bottom:0px;
+}
+#main p {
+  font-size: 23px;
+  line-height: 30px;
+  margin-top:0px;
+  color: #8c8c8c;
+}
+#main p .green{
+  color: #009f4e;
+}
+#main p .red{
+  color: #ed1941;
 }
 #content aside{
   position: relative;
@@ -275,6 +315,7 @@ header nav ul li:hover,
   border-radius:0 0 30px 0;
   width:233px;
 }
+#content #share,
 #content aside.opened{
   display: block;
 }
@@ -294,12 +335,6 @@ header nav ul li:hover,
   display: table-cell;
 }
 
-#content aside h1{
-  font-size: 26px;
-  line-height: 26px;
-  font-weight: lighter;
-  letter-spacing:1px;
-}
 #content aside h2{
   color:#83041c;
 }
@@ -311,7 +346,29 @@ header nav ul li:hover,
   margin-top: 15px;
   line-height: 16px;
 }
-
+#content #share{
+  position: absolute;
+  left: 1057px;
+  width: 15px;
+  padding: 7px;
+  z-index: 3;
+  border-radius: 0 0 8px 0;
+  background-image: url(../img/facebook_twitter.png)
+}
+#content #share ul{
+  padding: 0;
+  list-style: none;
+}
+#content #share ul li {
+  width: 16px;
+  height:16px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+#content #share ul li a{
+  padding-top: 16px;
+  display: block;
+}
 #content #projeto{
 /*458 .. 527*/
   left: 444px;

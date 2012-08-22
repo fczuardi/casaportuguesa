@@ -5,6 +5,7 @@
 - numeros com opacidade 80%
 - remover o pontilhadinho default do browser do link ativo nas tabs
 - botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
+- para onde devem os links de facebook e twitter linkar?
 
 -----
 sobre o funcionamento das tabs, tem como elas fecharem se eu clicar no body (e não num link, ou imagem de outro div).
