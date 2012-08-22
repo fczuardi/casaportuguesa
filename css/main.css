@@ -204,29 +204,15 @@ header nav ul li:hover,
 #content aside{
   background: #ee1941; /*vermelho da bola do logo*/
   background-color: rgba(238, 25, 65, 0.9);
+  -pie-background: rgba(238, 25, 65, 0.9);
+  behavior: url(ie/PIE.htc);
 }
-.lt-ie9 header nav ul li.active,
-.lt-ie9 header nav ul li:hover,
-.lt-ie9 #content aside{
-  background:transparent;
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5EE1941,endColorstr=#E5EE1941);
-  zoom: 1;
-}
-.lt-ie9 #content #share{
-  filter:none;
-}
-
 header nav ul li.external:hover{
   background: #009f4e;
   background-color: rgba(0, 159, 78, 0.9);
+  -pie-background: rgba(0, 159, 78, 0.9);
+  behavior: url(ie/PIE.htc);
 }
-
-.lt-ie9 header nav ul li.external:hover{
-  background:transparent;
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5009F4E,endColorstr=#E5009F4E);
-  zoom: 1;
-}
-
 #instagram-icon {
   width:55px;
   height:145px;
@@ -339,9 +325,11 @@ header nav ul li.external:hover{
   padding-bottom: 12px;
   margin-bottom:100px;
   display: none;
-  border-radius:0 0 30px 0;
   width:233px;
   z-index: 3;
+  -webkit-border-radius: 0 0 30px 0;
+  -moz-border-radius: 0 0 30px 0;
+  border-radius:0 0 30px 0;
 }
 #content #share,
 #content aside.opened{
@@ -379,8 +367,22 @@ header nav ul li.external:hover{
   left: 1057px;
   width: 15px;
   padding: 7px;
+  -webkit-border-radius: 0 0 8px 0;
+  -moz-border-radius: 0 0 8px 0;
   border-radius: 0 0 8px 0;
-  background-image: url(../img/facebook_twitter.png)
+  background-image: url(../img/facebook_twitter.png);
+  behavior: url(ie/PIE.htc);
+}
+.lt-ie9 #content #share{
+  background-image: none;
+}
+.lt-ie9 #content #share .facebook{
+  background-image: url(../img/facebook_twitter.png);
+  background-position: -8px -7px;
+}
+.lt-ie9 #content #share .twitter{
+  background-image: url(../img/facebook_twitter.png);
+  background-position: -8px -29px;
 }
 #content #share ul{
   padding: 0;

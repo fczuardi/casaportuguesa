@@ -5,3 +5,5 @@ AuthType Basic
 <Limit GET POST>
 require user casa
 </Limit>
+
+AddType text/x-component .htc
