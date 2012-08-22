@@ -1,3 +1,10 @@
+// For IE8 and earlier version.
+if (!Date.now) {
+  Date.now = function() {
+    return new Date().valueOf();
+  }
+}
+
 function tabClicked(event){
   var aside_id = $(this).attr('href');
   if ( (aside_id.indexOf('#') == -1) ||
