@@ -170,7 +170,7 @@ header .bg{
 header .content,
 #content{
   margin: auto;
-  width:1088px;
+  width:1089px;
 }
 
 header .logo{
@@ -196,6 +196,7 @@ header nav ul li a{
   color: #231f20 !important;
   padding:11px;
   background-color: #fff;
+  outline: none !important;
 }
 header nav ul li.active,
 header nav ul li:hover,
@@ -248,6 +249,7 @@ header nav ul li:hover,
   line-height: 481px;
   font-weight: bold;
   color: #ffffff;
+  opacity: 0.8;
 }
 #main #contador .digit hr{
   position: absolute;
@@ -266,6 +268,7 @@ header nav ul li:hover,
   top: 29px;
   left: 38px;
   opacity: 0.5;
+  letter-spacing: 0px;
 }
 #main #contador .digit .bottom-text{
   font-size: 36px;
@@ -273,28 +276,29 @@ header nav ul li:hover,
   bottom: 15px;
   right: 17px;
   opacity: 0.9;
+  letter-spacing: 0px;
 }
 #main h2,
 #main p,
 #content aside h1{
-  font-weight: lighter;
+  font-weight: 100;
   letter-spacing:1px;
 }
 #main h2,
 #content aside h1{
   font-size: 26px;
-  line-height: 26px;
+  line-height: 32px;
 }
 #main h2,
 #main p {
-  margin-left:52px;
+  margin-left:60px;
 }
 #main h2{
   margin-bottom:0px;
 }
 #main p {
-  font-size: 23px;
-  line-height: 30px;
+  font-size: 22px;
+  line-height: 26px;
   margin-top:0px;
   color: #8c8c8c;
 }
@@ -314,6 +318,7 @@ header nav ul li:hover,
   display: none;
   border-radius:0 0 30px 0;
   width:233px;
+  z-index: 3;
 }
 #content #share,
 #content aside.opened{
@@ -329,6 +334,7 @@ header nav ul li:hover,
   height:143px;
   vertical-align: top;
   margin-right:20px;
+  display: inline-block;
 }
 
 #content aside .content{
@@ -337,6 +343,7 @@ header nav ul li:hover,
 
 #content aside h2{
   color:#83041c;
+  margin-top: -3px;
 }
 #content aside h2,
 #content aside p{
@@ -351,7 +358,6 @@ header nav ul li:hover,
   left: 1057px;
   width: 15px;
   padding: 7px;
-  z-index: 3;
   border-radius: 0 0 8px 0;
   background-image: url(../img/facebook_twitter.png)
 }
