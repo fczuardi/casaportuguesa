@@ -22,21 +22,12 @@
 - fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
 - logo da Funarte (futuro próximo)
 
-IE9
-===
+IE9, 8, 7, 6
+============
 
+- OK - [ie8] [bug] Erro de Javascript no Date.now()
 
-IE8
-===
-- OK - [bug] Erro de Javascript no Date.now()
-
-- [bug] Ícone do instagram está pulando de linha
-- [bug] Bordas não arredondadas nos balões
+- [ie9] balao de coletivos não respeita o alinhamento de foto e texto
 - [wontfix] Não pega Helvetica / Helvetica Light
-
-
-IE7
-===
-
-IE6
-===
+- [bug] [ie8] Ícone do instagram está pulando de linha
+- [bug] [ie8] Bordas não arredondadas nos balões

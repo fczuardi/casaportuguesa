@@ -338,19 +338,8 @@ header nav ul li.external:hover{
 
 #content aside section{
   width: 100%;
-  display: table;
+  /*display: table;*/
   margin-bottom: -4px;
-}
-#content aside .foto{
-  width:143px;
-  height:143px;
-  vertical-align: top;
-  margin-right:20px;
-  display: inline-block;
-}
-
-#content aside .content{
-  display: table-cell;
 }
 
 #content aside h1{
@@ -414,6 +403,20 @@ header nav ul li.external:hover{
   padding-bottom: 20px;
   left: 572px;
   width:404px;
+}
+#content #coletivos .foto{
+  width:143px;
+  height:143px;
+  vertical-align: top;
+  margin-right:20px;
+  display: block;
+  float:left;
+}
+
+#content #coletivos .content{
+  display: block;
+  float:left;
+  width:200px;
 }
 #content #inauguracao{
 /*833 .. 926*/
@@ -512,12 +515,15 @@ header nav ul li.external:hover{
  *    `:before` to contain the top-margins of child elements.
  */
 
+#content aside section:before,
+#content aside section:after,
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
 
+#content aside section:after,
 .clearfix:after {
     clear: both;
 }
