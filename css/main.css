@@ -107,8 +107,11 @@ textarea {
    ========================================================================== */
 
 body{
-  background-image: url(../mockups/casaPortuguesa_v7_contador_ballon_com_foto.jpg);
+  /*background-image: url(../mockups/casaPortuguesa_v5_balloon.png);*/
+  /*background-image: url(../mockups/casaPortuguesa_v7_contador_ballon_com_foto.jpg);*/
+  background-image: url(../mockups/casaPortuguesa_v7_contador.jpg);
 }
+#content #contador .digit,
 #content aside,
 header{
   /*opacity:0.5;*/
@@ -122,12 +125,16 @@ header{
 body,
 header,
 header .logo,
-#instagram-icon {
+#instagram-icon,
+#content #contador .digit,
+#content #contador .digit hr {
   background-repeat: no-repeat;
 }
 
 header .logo,
 header nav ul,
+#content #contador .digit p,
+#content #contador .digit hr,
 #content aside h1,
 #content aside h2{
   margin:0;
@@ -209,13 +216,64 @@ header nav ul li:hover,
   position:relative;
 }
 
-#content aside{
+#content #contador{
+  width:1033px;
+  height:504px;
+  margin:auto;
+  margin-top:-23px;
+}
+#content #contador .digit hr,
+#content #contador .digit{
+  width:248px;
+  height:504px;
+}
+#content #contador .digit{
+  width:248px;
+  height:504px;
+  background-image: url(../img/base_contador.png);
+  float: left;
+  margin-left: 8px;
+  font-size: 438px;
+  line-height: 481px;
+  font-weight: bold;
+  position: relative;
+}
+#content #contador .digit p{
+  text-align: center;
+}
+#content #contador .digit hr{
   position: absolute;
+  top: 0;
+  border: none;
+  background-image: url(../img/tapa-numero.png);
+}
+#content #contador .digit .top-text,
+#content #contador .digit .bottom-text{
+  position: absolute;
+  font-weight: normal;
+}
+#content #contador .digit .top-text{
+  font-size: 24px;
+  line-height: 24px;
+  top: 29px;
+  left: 38px;
+}
+#content #contador .digit .bottom-text{
+  font-size: 36px;
+  line-height: 36px;
+  bottom: 15px;
+  right: 17px;
+}
+#content aside{
+  position: relative;
   top: -27px;
   padding:28px;
   padding-top: 22px;
   padding-right: 22px;
+  margin-bottom:100px;
   display: none;
+  border-radius:0 0 30px 0;
+  width:233px;
 }
 #content aside.opened{
   display: block;
@@ -242,7 +300,9 @@ header nav ul li:hover,
   font-weight: lighter;
   letter-spacing:1px;
 }
-
+#content aside h2{
+  color:#83041c;
+}
 #content aside h2,
 #content aside p{
   font-size: 13px;
@@ -258,7 +318,7 @@ header nav ul li:hover,
 }
 #content #casa{
 /*537 .. 620*/
-  left:523px;
+  left:521px;
 }
 #content #regulamento{
 /*630 .. 729*/
@@ -267,7 +327,7 @@ header nav ul li:hover,
 #content #coletivos{
 /*739 .. 823*/
   left: 572px;
-  width:398px;
+  width:404px;
 }
 #content #inauguracao{
 /*833 .. 926*/
