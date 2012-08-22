@@ -101,12 +101,305 @@ textarea {
     padding: 0.2em 0;
 }
 
+
+/* ==========================================================================
+   DEBUG
+   ========================================================================== */
+
+body{
+  /*background-image: url(../mockups/casaPortuguesa_v5_balloon.png);*/
+  /*background-image: url(../mockups/casaPortuguesa_v7_contador_ballon_com_foto.jpg);*/
+  /*background-image: url(../mockups/casaPortuguesa_v7_contador.jpg);*/
+}
+#content #contador .digit,
+#content aside,
+header{
+  /*opacity:0.5;*/
+}
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 
+body,
+header,
+header .logo,
+#instagram-icon,
+#content #share,
+#content #contador .digit,
+#content #contador .digit hr {
+  background-repeat: no-repeat;
+}
 
+header .logo,
+header nav ul,
+#content #contador .digit p,
+#content #contador .digit hr,
+#content #share ul,
+#content aside h1,
+#content aside h2{
+  margin:0;
+}
+
+body{
+  background-position: top center;
+  background-color: #231f20;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+
+a{
+  text-decoration: none;
+}
+
+header{
+  height:151px;
+  padding-bottom: 47px;
+  background-image: url(../img/sombra.png);
+  background-position:center bottom;
+  position: relative;
+  z-index: 2;
+}
+
+header .bg{
+  width:100%;
+  height:171px;
+  background-color:#ffffff;
+}
+header .content,
+#content{
+  margin: auto;
+  width:1089px;
+}
+
+header .logo{
+  height:151px;
+  width:345px;
+  float: left;
+  background-image: url(../img/logos.png);
+  background-position: 0px 19px;
+  margin-right: 113px;
+}
+
+header nav ul li{
+  float: left;
+  margin-right: 10px;
+  padding-bottom: 13px;
+}
+header nav ul li a{
+  display: table-cell;
+  height: 136px;
+  vertical-align: bottom;
+  font-size: 12px;
+  line-height: 12px;
+  color: #231f20 !important;
+  padding:11px;
+  background-color: #fff;
+  outline: none !important;
+}
+header nav ul li.active,
+header nav ul li:hover,
+#content aside{
+  background: #ee1941; /*vermelho da bola do logo*/
+  background-color: rgba(238, 25, 65, 0.9);
+}
+
+#instagram-icon {
+  width:55px;
+  height:145px;
+  margin-left: 15px;
+  float: left;
+  background-image: url(../img/instagram.png);
+  background-position: 0px bottom;
+}
+
+#content{
+  position:relative;
+}
+
+#main{
+  position: absolute;
+  min-height: 700px;
+  width: 100%;
+}
+#main #contador{
+  width:1033px;
+  height:504px;
+  margin:auto;
+  margin-top:-23px;
+  margin-bottom: 35px;
+}
+#main #contador .digit hr,
+#main #contador .digit{
+  width:248px;
+  height:504px;
+}
+#main #contador .digit{
+  width:248px;
+  height:504px;
+  background-image: url(../img/base_contador.png);
+  float: left;
+  margin-left: 8px;
+  position: relative;
+}
+#main #contador .digit p{
+  text-align: center;
+  font-size: 438px;
+  line-height: 481px;
+  font-weight: bold;
+  color: #ffffff;
+  opacity: 0.8;
+}
+#main #contador .digit hr{
+  position: absolute;
+  top: 0;
+  border: none;
+  background-image: url(../img/tapa-numero.png);
+}
+#main #contador .digit .top-text,
+#main #contador .digit .bottom-text{
+  position: absolute;
+  font-weight: normal;
+}
+#main #contador .digit .top-text{
+  font-size: 24px;
+  line-height: 24px;
+  top: 29px;
+  left: 38px;
+  opacity: 0.5;
+  letter-spacing: 0px;
+}
+#main #contador .digit .bottom-text{
+  font-size: 36px;
+  line-height: 36px;
+  bottom: 15px;
+  right: 17px;
+  opacity: 0.9;
+  letter-spacing: 0px;
+}
+#main h2,
+#main p,
+#content aside h1{
+  font-weight: 100;
+  letter-spacing:1px;
+}
+#main h2,
+#content aside h1{
+  font-size: 26px;
+  line-height: 32px;
+}
+#main h2,
+#main p {
+  margin-left:60px;
+}
+#main h2{
+  margin-bottom:0px;
+}
+#main p {
+  font-size: 22px;
+  line-height: 26px;
+  margin-top:0px;
+  color: #8c8c8c;
+}
+#main p .green{
+  color: #009f4e;
+}
+#main p .red{
+  color: #ed1941;
+}
+#content aside{
+  position: relative;
+  top: -27px;
+  padding:28px;
+  padding-top: 22px;
+  padding-right: 22px;
+  margin-bottom:100px;
+  display: none;
+  border-radius:0 0 30px 0;
+  width:233px;
+  z-index: 3;
+}
+#content #share,
+#content aside.opened{
+  display: block;
+}
+
+#content aside section{
+  width: 100%;
+  display: table;
+}
+#content aside .foto{
+  width:143px;
+  height:143px;
+  vertical-align: top;
+  margin-right:20px;
+  display: inline-block;
+}
+
+#content aside .content{
+  display: table-cell;
+}
+
+#content aside h2{
+  color:#83041c;
+  margin-top: -3px;
+}
+#content aside h2,
+#content aside p{
+  font-size: 13px;
+}
+#content aside p{
+  margin-top: 15px;
+  line-height: 16px;
+}
+#content #share{
+  position: absolute;
+  left: 1057px;
+  width: 15px;
+  padding: 7px;
+  border-radius: 0 0 8px 0;
+  background-image: url(../img/facebook_twitter.png)
+}
+#content #share ul{
+  padding: 0;
+  list-style: none;
+}
+#content #share ul li {
+  width: 16px;
+  height:16px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+#content #share ul li a{
+  padding-top: 16px;
+  display: block;
+}
+#content #projeto{
+/*458 .. 527*/
+  left: 444px;
+}
+#content #casa{
+/*537 .. 620*/
+  left:521px;
+}
+#content #regulamento{
+/*630 .. 729*/
+  left:616px;
+}
+#content #coletivos{
+/*739 .. 823*/
+  left: 572px;
+  width:404px;
+}
+#content #inauguracao{
+/*833 .. 926*/
+  left: 819px;
+}
+#content #contato{
+/*936 .. 1005*/
+  left: 922px;
+}
 
 
 
