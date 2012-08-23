@@ -40,7 +40,34 @@ function updateCounter(){
     $(this).html(digits[i]);
   });
 }
+
+function showMessagePopup(){
+  var popup = $('#message-popup');
+  var popup_launcher = $('#popup-opener');
+  popup_launcher.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+  popup.removeClass('closed');
+}
+function hideMessagePopup(){
+  var popup = $('#message-popup');
+  popup.addClass('closed');
+  popup.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", showPopupLauncher);
+}
+function showPopupLauncher(){
+  var popup = $('#message-popup');
+  var popup_launcher = $('#popup-opener');
+  popup.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+  popup_launcher.removeClass('closed');
+}
+function hidePopupLauncher(){
+  var popup_launcher = $('#popup-opener');
+  popup_launcher.addClass('closed');
+  popup_launcher.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", showMessagePopup);
+}
+
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
+  $('#message-popup .close-button').click(hideMessagePopup);
+  $('#popup-opener a').click(hidePopupLauncher);
   updateCounter();
+  showMessagePopup();
 });

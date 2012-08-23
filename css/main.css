@@ -153,11 +153,13 @@ body{
   background-color: #231f20;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #ffffff;
+  color: rgba(255,255,255,0.99);
 }
 
 a{
   text-decoration: none;
-  color:white;
+  color: #ffffff;
+  color: rgba(255,255,255,0.99);
 }
 
 header{
@@ -316,9 +318,15 @@ header nav ul li.external:hover{
   margin-top:0px;
   color: #8c8c8c;
 }
+#popups{
+  position: relative;
+  top:-27px;
+  min-height:600px;
+  overflow: hidden;
+}
 #content aside{
   position: relative;
-  top: -27px;
+  top: 0px;
   padding:28px;
   padding-top: 9px;
   padding-right: 29px;
@@ -366,6 +374,14 @@ header nav ul li.external:hover{
 #content #message-popup{
   display: inline-block;
   position: absolute;
+  -o-transition-property: top;
+  -moz-transition-property: top;
+  -webkit-transition-property: top;
+  transition-property: top;
+  -o-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
   background: #009f4e;
   background-color: rgba(0, 159, 78, 0.9);
   -pie-background: rgba(0, 159, 78, 0.9);
@@ -405,10 +421,6 @@ header nav ul li.external:hover{
   padding-bottom: 22px;
   padding-left: 36px;
 }
-#content #popup-opener.under,
-#content #message-popup.under{
-  z-index:1;
-}
 #content #popup-opener.closed{
   top:-60px;
 }
@@ -428,8 +440,10 @@ header nav ul li.external:hover{
   letter-spacing: 1px;
   color:#97f8c4;
 }
+#content #popup-opener p a,
 #content #message-popup .tag{
   color:#ffffff;
+  color: rgba(255,255,255,0.99);
 }
 #content #message-popup p{
   font-size: 15px;
