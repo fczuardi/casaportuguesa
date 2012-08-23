@@ -45,6 +45,7 @@ function updateCounter(){
 function showMessagePopup(){
   var popup = $('#message-popup');
   var popup_launcher = $('#popup-opener');
+  if (!popup_launcher.hasClass('closed')){ return; }
   popup_launcher.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
   popup.removeClass('closed');
 }

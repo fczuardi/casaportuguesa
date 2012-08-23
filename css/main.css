@@ -113,6 +113,18 @@ body{
   /*background-image: url(../mockups/casaPortuguesa_v8_contador_pop.jpg);*/
   /*background-image: url(../mockups/casaPortuguesa_v10_aviso_mini.png);*/
 }
+#promo-fake{
+  background-image: url(../mockups/casaPortuguesa_v10.jpg);
+}
+#promo-fake header{
+  background-image: none;
+}
+#promo-fake #content{
+  height:1200px;
+}
+#promo-fake #share{
+  display: none !important;
+}
 #content #contador .digit,
 #content aside,
 header{
