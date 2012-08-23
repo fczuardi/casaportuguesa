@@ -29,12 +29,15 @@ OK - IE9, 8, 7, 6
 - OK - leia/baixe o regulamento: 0. Baixe o regulamento - Clique aqui e baixe o regulamento para guardar, imprimir ou ler com calma
 - OK - testar em IE9 e IE8
 - OK - IE6 para baixo exibir chromeframe
+- OK - trocar o texto da tela inicial por popup verde
+- OK - popup verde quando possivel deve aparecer vindo de cima para baixo a partir do header
+- OK - ao clicar no x de fechar a popup verde deve subir, e voltar na versao pequena
+- OK - ao clicar na versao pequena da popup verde a popup pequena deve subir e voltar como popup grande
+- OK - 2. popup aprovado + incluir um abrir fechar, sendo q quando fechado fica a mostra a frase: Qual a sua imagem da casa portuguesa?
+- OK - 3. alterar o txt do pop para Qual a sua imagem da casa portuguesa?
+- OK - 4. link da inauguração do projeto vai p face abrindo uma aba nova
 
-
-- trocar o texto da tela inicial por popup verde
-- popup verde quando possivel deve aparecer vindo de cima para baixo a partir do header
-- ao clicar no x de fechar a popup verde deve subir, e voltar na versao pequena
-- ao clicar na versao pequena da popup verde a popup pequena deve subir e voltar como popup grande
+1. ballon fecha quando clica no link ou q lugar fora
 
 - desligar o live.js!!!!
 - adaptacao pro php prover quantos milisegundos faltam
