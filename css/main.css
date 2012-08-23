@@ -388,8 +388,8 @@ header nav ul li.external:hover{
   behavior: url(ie/PIE.htc);
 }
 #content #popup-opener{
-  left:679px;
-  width:350px;
+  left:709px;
+  width:320px;
   padding: 0px;
   -webkit-border-radius: 0 0 8px 0;
   -moz-border-radius: 0 0 8px 0;
@@ -416,7 +416,7 @@ header nav ul li.external:hover{
   background-position: 0px -8px;
 }
 #content #message-popup{
-  left:577px;
+  left:569px;
   width:397px;
   padding-bottom: 22px;
   padding-left: 36px;
