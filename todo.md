@@ -8,8 +8,9 @@
 - OK - incluir o link de inauguração do projeto (http://www.facebook.com/umacasaportuguesacomcerteza)
 - OK - incluir link para download do PDF
 - OK - leia/baixe o regulamento: 0. Baixe o regulamento - Clique aqui e baixe o regulamento para guardar, imprimir ou ler com calma
+- OK - testar em IE9 e IE8
 
-- testar em IE9 e IE8
+- desligar o live.js!!!!
 - IE7 para baixo exibir chromeframe
 - adaptacao pro php prover quantos milisegundos faltam
 - para onde devem os links de facebook e twitter linkar?
@@ -34,3 +35,8 @@ IE9, 8, 7, 6
 - OK - [ie8] Vermelho do balão não tem opacidade
 - OK - [ie8] Icones do twitter e facebook aparecem bem fracos
 - OK - [ie8] Bordas não arredondadas nos balões
+- OK - [ie7] menu superior está cagado
+- OK - [ie7] tudo se mexe quando vc da um hover em um link (tabs e twitter)
+- OK - [ie7] todos os digitos estão com o hr zoado
+- OK - [ie7] z-index do balão não é respeitado (aperece debaixo da sombra)
+

@@ -458,6 +458,93 @@ header nav ul li.external:hover{
 
 
 
+/*IE7*/
+.lt-ie8 header{
+  background-image: none;
+}
+.lt-ie8 header .logo{
+  position: absolute;
+  margin-left:2px;
+}
+.lt-ie8 header nav {
+  position: relative;
+  display: inline;
+  left:420px;
+  zoom:1;
+}
+.lt-ie8 #instagram-icon {
+  position: absolute;
+  left: 50%;
+  margin-left:487px;
+}
+.lt-ie8 header nav ul li a{
+  display: block;
+  height: 66px;
+  position: relative;
+  padding: 0px;
+}
+.lt-ie8 header nav ul li.active a,
+.lt-ie8 header nav ul li a:hover{
+  background-color: #ee1941;
+  -pie-background: rgba(238, 25, 65, 0.9);
+  behavior: url(ie/PIE.htc);
+}
+.lt-ie8 header nav ul li.active a{
+  height:53px;
+}
+.lt-ie8 header nav ul li.external a:hover{
+  background: #009f4e;
+  -pie-background: rgba(0, 159, 78, 0.9);
+  behavior: url(ie/PIE.htc);
+}
+.lt-ie8 header nav ul li a span{
+  padding-bottom: 0px;
+  padding:11px;
+  background-color: white;
+  height: 30px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.lt-ie8 header nav ul {
+  display: block;
+  float: left;
+  position: relative;
+  top: 105px;
+}
+.lt-ie8 #main #contador .digit hr{
+  display: none;
+}
+.lt-ie8 #content #share,
+.lt-ie8 #content aside.opened{
+  position: absolute;
+  display: inline-block;
+}
+.lt-ie8 #content aside.opened{
+  z-index:4;
+}
+#content #regulamento{
+  width:577px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ==========================================================================
    Helper classes
