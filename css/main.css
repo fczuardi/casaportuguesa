@@ -311,6 +311,8 @@ header nav ul li.external:hover{
 }
 #main h2{
   margin-bottom:0px;
+  margin-left: 0px;
+  text-align: center;
 }
 #main p {
   font-size: 22px;
@@ -452,7 +454,7 @@ header nav ul li.external:hover{
 #content #message-popup .close-button{
   position: absolute;
   top:-13px;
-  left:431px;
+  left:438px;
   width:20px;
   height: 10px;
   background-image: url(../img/sprite_X_V.png);
