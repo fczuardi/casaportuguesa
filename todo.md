@@ -9,9 +9,9 @@
 - OK - incluir link para download do PDF
 - OK - leia/baixe o regulamento: 0. Baixe o regulamento - Clique aqui e baixe o regulamento para guardar, imprimir ou ler com calma
 - OK - testar em IE9 e IE8
+- OK - IE6 para baixo exibir chromeframe
 
 - desligar o live.js!!!!
-- IE7 para baixo exibir chromeframe
 - adaptacao pro php prover quantos milisegundos faltam
 - para onde devem os links de facebook e twitter linkar?
 - botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
@@ -39,4 +39,4 @@ IE9, 8, 7, 6
 - OK - [ie7] tudo se mexe quando vc da um hover em um link (tabs e twitter)
 - OK - [ie7] todos os digitos estão com o hr zoado
 - OK - [ie7] z-index do balão não é respeitado (aperece debaixo da sombra)
-
+- OK - [ie6] Ajustes IE6 + chrome-frame

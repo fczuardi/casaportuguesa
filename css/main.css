@@ -448,16 +448,6 @@ header nav ul li.external:hover{
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*IE7*/
 .lt-ie8 header{
   background-image: none;
@@ -528,14 +518,21 @@ header nav ul li.external:hover{
   width:577px;
 }
 
+/*IE6*/
 
-
-
-
-
-
-
-
+.lt-ie7 header{
+  height: 171px;
+  margin: 0px;
+  padding:0px;
+  overflow: hidden;
+}
+.lt-ie7 header nav ul li{
+  background:yellow;
+  width: 70px;
+}
+.lt-ie7 #content{
+  margin-top:27px;
+}
 
 
 
