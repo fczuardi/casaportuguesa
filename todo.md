@@ -36,9 +36,10 @@ OK - IE9, 8, 7, 6
 - OK - 2. popup aprovado + incluir um abrir fechar, sendo q quando fechado fica a mostra a frase: Qual a sua imagem da casa portuguesa?
 - OK - 3. alterar o txt do pop para Qual a sua imagem da casa portuguesa?
 - OK - 4. link da inauguração do projeto vai p face abrindo uma aba nova
+- OK - 1. ballon fecha quando clica no link ou q lugar fora
 
-1. ballon fecha quando clica no link ou q lugar fora
 
+- fazer um html de mentira com o png centralizado
 - desligar o live.js!!!!
 - adaptacao pro php prover quantos milisegundos faltam
 - para onde devem os links de facebook e twitter linkar?
