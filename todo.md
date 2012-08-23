@@ -30,6 +30,12 @@ OK - IE9, 8, 7, 6
 - OK - testar em IE9 e IE8
 - OK - IE6 para baixo exibir chromeframe
 
+
+- trocar o texto da tela inicial por popup verde
+- popup verde quando possivel deve aparecer vindo de cima para baixo a partir do header
+- ao clicar no x de fechar a popup verde deve subir, e voltar na versao pequena
+- ao clicar na versao pequena da popup verde a popup pequena deve subir e voltar como popup grande
+
 - desligar o live.js!!!!
 - adaptacao pro php prover quantos milisegundos faltam
 - para onde devem os links de facebook e twitter linkar?
@@ -41,4 +47,29 @@ OK - IE9, 8, 7, 6
 
 - fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
 - logo da Funarte (futuro próximo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

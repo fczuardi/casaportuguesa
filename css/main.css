@@ -110,13 +110,16 @@ body{
   /*background-image: url(../mockups/casaPortuguesa_v5_balloon.png);*/
   /*background-image: url(../mockups/casaPortuguesa_v7_contador_ballon_com_foto.jpg);*/
   /*background-image: url(../mockups/casaPortuguesa_v7_contador.jpg);*/
+  /*background-image: url(../mockups/casaPortuguesa_v8_contador_pop.jpg);*/
 }
 #content #contador .digit,
 #content aside,
 header{
   /*opacity:0.5;*/
 }
-
+#content #main{
+  /*opacity:0.1;*/
+}
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -310,12 +313,6 @@ header nav ul li.external:hover{
   margin-top:0px;
   color: #8c8c8c;
 }
-#main p .green{
-  color: #009f4e;
-}
-#main p .red{
-  color: #ed1941;
-}
 #content aside{
   position: relative;
   top: -27px;
@@ -361,6 +358,41 @@ header nav ul li.external:hover{
 #content aside p{
   margin-top: 15px;
   line-height: 16px;
+}
+
+#content #message-popup{
+  display: inline-block;
+  position: absolute;
+  left:577px;
+  /*left:117px;*/
+  background: ;
+  width:397px;
+  padding-bottom: 22px;
+  padding-left: 36px;
+  background: #009f4e;
+  background-color: rgba(0, 159, 78, 0.9);
+  -pie-background: rgba(0, 159, 78, 0.9);
+  behavior: url(ie/PIE.htc);
+}
+#content #message-popup h1{
+  font-size: 36px;
+  line-height: 36px;
+  margin-top: 20px;
+}
+#content #message-popup h2{
+  font-size: 23px;
+  line-height: 28px;
+  margin-top: 28px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color:#97f8c4;
+}
+#content #message-popup .tag{
+  color:#ffffff;
+}
+#content #message-popup p{
+  font-size: 15px;
+  margin-top: 25px;
 }
 #content #share{
   position: absolute;
