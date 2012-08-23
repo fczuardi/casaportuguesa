@@ -1,3 +1,22 @@
+OK - IE9, 8, 7, 6
+=================
+
+- WONTFIX - [ie9] [ie8] [ie7] [ie6] [windows] Não pega Helvetica / Helvetica Light
+
+- OK - [ie8] [bug] Erro de Javascript no Date.now()
+- OK - [ie9] balao de coletivos não respeita o alinhamento de foto e texto
+- OK - [ie8] Ícone do instagram está pulando de linha
+  - OK - [ie8] Baloes sem foto estao dando uma margem no primeiro paragrafo
+- OK - [ie8] Vermelho do balão não tem opacidade
+- OK - [ie8] Icones do twitter e facebook aparecem bem fracos
+- OK - [ie8] Bordas não arredondadas nos balões
+- OK - [ie7] menu superior está cagado
+- OK - [ie7] tudo se mexe quando vc da um hover em um link (tabs e twitter)
+- OK - [ie7] todos os digitos estão com o hr zoado
+- OK - [ie7] z-index do balão não é respeitado (aperece debaixo da sombra)
+- OK - [ie6] Ajustes IE6 + chrome-frame
+
+* * *
 
 - OK - R:NAO - aquele icone do instagram é clicável, se sim, linka para onde/o que?
 - OK - hover numa aba mostra o risco rosa, clique abre o balão rosa com texto
@@ -23,20 +42,3 @@
 - fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
 - logo da Funarte (futuro próximo)
 
-IE9, 8, 7, 6
-============
-
-- WONTFIX - [ie9] [ie8] [ie7] [ie6] [windows] Não pega Helvetica / Helvetica Light
-
-- OK - [ie8] [bug] Erro de Javascript no Date.now()
-- OK - [ie9] balao de coletivos não respeita o alinhamento de foto e texto
-- OK - [ie8] Ícone do instagram está pulando de linha
-  - OK - [ie8] Baloes sem foto estao dando uma margem no primeiro paragrafo
-- OK - [ie8] Vermelho do balão não tem opacidade
-- OK - [ie8] Icones do twitter e facebook aparecem bem fracos
-- OK - [ie8] Bordas não arredondadas nos balões
-- OK - [ie7] menu superior está cagado
-- OK - [ie7] tudo se mexe quando vc da um hover em um link (tabs e twitter)
-- OK - [ie7] todos os digitos estão com o hr zoado
-- OK - [ie7] z-index do balão não é respeitado (aperece debaixo da sombra)
-- OK - [ie6] Ajustes IE6 + chrome-frame
