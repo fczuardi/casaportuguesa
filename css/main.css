@@ -111,6 +111,7 @@ body{
   /*background-image: url(../mockups/casaPortuguesa_v7_contador_ballon_com_foto.jpg);*/
   /*background-image: url(../mockups/casaPortuguesa_v7_contador.jpg);*/
   /*background-image: url(../mockups/casaPortuguesa_v8_contador_pop.jpg);*/
+  /*background-image: url(../mockups/casaPortuguesa_v10_aviso_mini.png);*/
 }
 #content #contador .digit,
 #content aside,
@@ -131,7 +132,9 @@ header .logo,
 #instagram-icon,
 #content #share,
 #content #contador .digit,
-#content #contador .digit hr {
+#content #contador .digit hr,
+#content #popup-opener p .caret,
+#content #message-popup .close-button {
   background-repeat: no-repeat;
 }
 
@@ -359,20 +362,58 @@ header nav ul li.external:hover{
   margin-top: 15px;
   line-height: 16px;
 }
-
+#content #popup-opener,
 #content #message-popup{
   display: inline-block;
   position: absolute;
-  left:577px;
-  /*left:117px;*/
-  background: ;
-  width:397px;
-  padding-bottom: 22px;
-  padding-left: 36px;
   background: #009f4e;
   background-color: rgba(0, 159, 78, 0.9);
   -pie-background: rgba(0, 159, 78, 0.9);
   behavior: url(ie/PIE.htc);
+}
+#content #popup-opener{
+  left:679px;
+  width:350px;
+  padding: 0px;
+  -webkit-border-radius: 0 0 8px 0;
+  -moz-border-radius: 0 0 8px 0;
+  border-radius: 0 0 8px 0;
+  behavior: url(ie/PIE.htc);
+}
+#content #popup-opener p{
+  margin:0px;
+  font-size: 14px;
+  line-height: 32px;
+  margin-left: 15px;
+}
+#content #popup-opener p a{
+  display: block;
+  text-decoration: none !important;
+}
+#content #popup-opener p .caret{
+  position: absolute;
+  width:10px;
+  height:10px;
+  right:12px;
+  top:12px;
+  background-image: url(../img/sprite_X_V.png);
+  background-position: 0px -8px;
+}
+#content #message-popup{
+  left:577px;
+  width:397px;
+  padding-bottom: 22px;
+  padding-left: 36px;
+}
+#content #popup-opener.under,
+#content #message-popup.under{
+  z-index:1;
+}
+#content #popup-opener.closed{
+  top:-60px;
+}
+#content #message-popup.closed{
+  top:-380px;
 }
 #content #message-popup h1{
   font-size: 36px;
@@ -393,6 +434,18 @@ header nav ul li.external:hover{
 #content #message-popup p{
   font-size: 15px;
   margin-top: 25px;
+}
+#content #message-popup .close-button{
+  position: absolute;
+  top:-13px;
+  left:431px;
+  width:20px;
+  height: 10px;
+  background-image: url(../img/sprite_X_V.png);
+  overflow: hidden;
+}
+#content #message-popup .close-button a{
+  padding-left: 20px;
 }
 #content #share{
   position: absolute;
