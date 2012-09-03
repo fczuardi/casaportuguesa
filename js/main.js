@@ -25,7 +25,7 @@ function tabClicked(event){
 }
 function updateCounter(){
   if (!miliseconds_left){
-    var final_date = new Date(2012, 8, 19 , 0, 0, 0, 0).getTime(); //19 de setembro de 2012
+    var final_date = new Date(2012, 8, 20 , 0, 0, 0, 0).getTime(); //20 de setembro de 2012
     var current_date = Date.now();
     var miliseconds_left = final_date - current_date;
   }
