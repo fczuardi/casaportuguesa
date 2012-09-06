@@ -481,22 +481,27 @@ header nav ul li.external:hover{
   left: 1057px;
   width: 15px;
   padding: 7px;
+  padding-bottom:9px;
   -webkit-border-radius: 0 0 8px 0;
   -moz-border-radius: 0 0 8px 0;
   border-radius: 0 0 8px 0;
-  background-image: url(../img/facebook_twitter.png);
+  background-image: url(../img/etiqueta.png);
   behavior: url(ie/PIE.htc);
 }
 .lt-ie9 #content #share{
   background-image: none;
 }
 .lt-ie9 #content #share .facebook{
-  background-image: url(../img/facebook_twitter.png);
+  background-image: url(../img/etiqueta.png);
   background-position: -8px -7px;
 }
-.lt-ie9 #content #share .twitter{
-  background-image: url(../img/facebook_twitter.png);
+.lt-ie9 #content #share .vimeo{
+  background-image: url(../img/etiqueta.png);
   background-position: -8px -29px;
+}
+.lt-ie9 #content #share .twitter{
+  background-image: url(../img/etiqueta.png);
+  background-position: -8px -51px;
 }
 #content #share ul{
   padding: 0;
