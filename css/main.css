@@ -317,6 +317,14 @@ header nav ul li.external:hover{
   font-size: 26px;
   line-height: 32px;
 }
+#content aside h3{
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-top: 0px;
+	margin-bottom: 20px;
+}
 #main h2,
 #main p {
   margin-left:60px;
@@ -383,6 +391,10 @@ header nav ul li.external:hover{
 #content aside p{
   margin-top: 15px;
   line-height: 16px;
+}
+#content aside p.menor{
+  font-size: 10px;
+  color:black;
 }
 #content #popup-opener,
 #content #message-popup{
@@ -547,6 +559,7 @@ header nav ul li.external:hover{
   height:143px;
   vertical-align: top;
   margin-right:20px;
+	margin-top: 6px;
   display: block;
   float:left;
 }
