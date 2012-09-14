@@ -570,9 +570,18 @@ header nav ul li.external:hover{
   width:200px;
 }
 #content #inauguracao{
-/*833 .. 926*/
-  left: 741px;
+	left: 550px;
+	width: 436px;
 }
+
+#content #inauguracao .logo-esq{
+	padding-bottom: 10px;
+}
+
+#content #inauguracao .logo-dir{
+	float: right;
+}
+
 #content #contato{
 /*936 .. 1005*/
   left: 922px;
