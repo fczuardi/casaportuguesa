@@ -15,12 +15,22 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css?v=1345764311310">
     <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+    <!--
     <script type="text/javascript" src="js/vendor/live.js"></script>
-    <script>
-      //PHP should fill this value
-      // var miliseconds_left = 2376187783;
-    </script>
+  -->
   </head>
+<?php
+$page = 1;
+$page_size = 28;
+$page_begin = ($page-1) * $page_size;
+// $page_end = $page_begin + ($page_size-1);
+$db = "fotos.sqlite";
+$db_table_name = 'itatibafoo';
+$handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
+$q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+$query = sqlite_query($handle, $q);
+$result = sqlite_fetch_all($query, SQLITE_ASSOC);
+?>
   <body>
     <!--[if lt IE 7]>
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -63,31 +73,20 @@
 				<p class="primeiro">Os destaques acima misturam as mais votadas no instagram com nossas preferidas</p>
 				<p class="ultimo">Opine você também: dê um like nas fotos que você mais gosta</p>
 	      <ol class="recentes">
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
-					<li><a href="#"><img src="img/foto-fake.jpg"></img></a></li>
+          <?php
+foreach ($result as $entry) {
+  echo '<li><a href="' . $entry["link"] . '"><img src="'
+                       . $entry["image_url"] . '"></img></a></li>';
+}
+          ?>
 	      </ol>
+        <p>
+          <a href="#" onclick="return loadNextPhotoPage(this);">more...</a>
+<!--
 				<div id="mouse-over">
 					<a href="#"><img src="img/foto-fake.jpg"></img></a>
 				</div>
+ -->
       </div> <!-- main -->
       <div id="popups">
         <aside id="popup-opener" class="closed">

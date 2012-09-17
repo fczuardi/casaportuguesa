@@ -5,6 +5,8 @@ if (!Date.now) {
   }
 }
 
+var next_page = 2;
+
 function tabClicked(event){
   var aside_id = $(this).attr('href');
   if ( (aside_id.indexOf('#') == -1) ||
@@ -74,7 +76,25 @@ function dismissPopup(event){
   //   hideMessagePopup();
   // }
 }
-
+function hideNotFoundImages(){
+  $('.recentes li a').each(function(){
+    if ($(this).width() == 0){
+      $(this).parent('li').css('display', 'none');
+      // $(this).css('display', 'none');
+    }
+  });
+}
+function loadNextPhotoPage(event){
+  // ajax_more_photos.php?page=2
+  var url = "ajax_more_photos.php?page="+next_page;
+  $.get(url,function(data) {
+      var posts = $(data).find('li');
+      $('.recentes').append(posts);
+      hideNotFoundImages();
+      next_page++;
+  });
+  return false;
+}
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
   $('#message-popup .close-button').click(hideMessagePopup);
@@ -82,4 +102,5 @@ $(document).ready(function() {
   $('body').click(dismissPopup);
   updateCounter();
   showMessagePopup();
+  $(window).load(hideNotFoundImages);
 });

@@ -2,7 +2,7 @@
 ini_set('display_errors', '0');
 $db = "fotos.sqlite";
 $db_table_name = 'itatibafoo';
-$tags = array('itatibafoo', 'food');
+$tags = array('umacasaportuguesacomcerteza', 'casalusa');
 $page = $_GET['page'];
 if(is_null($page)) {
   $page = 1;
