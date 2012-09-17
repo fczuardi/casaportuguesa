@@ -93,6 +93,7 @@ function loadNextPhotoPage(){
       hideNotFoundImages();
       next_page++;
       ajax_currently_loading = false;
+      $('.recentes li a').mouseover(recentPhotoHover);
   });
   return false;
 }
@@ -105,7 +106,12 @@ function checkScrollEnd(event){
   }
 }
 function recentPhotoHover(event){
-  $('#mouse-over').html($(this).parent('li').html());
+  var li = $(this).parent('li');
+  var li_offset = li.offset();
+  var over = $('#mouse-over');
+  over.html(li.html());
+  over.css('top', li_offset['top'] - 230);
+  over.css('left', li_offset['left'] - 120);
 }
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
