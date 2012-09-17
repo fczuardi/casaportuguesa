@@ -715,7 +715,7 @@ header nav ul li.external:hover{
 	color: white;
 }
 #main p.ultimo {
-	padding-bottom: 25px;
+	padding-bottom: 21px;
 }
 #main p {
 	clear: both;
@@ -741,7 +741,7 @@ header nav ul li.external:hover{
 }
 #main #mouse-over{
 	position: absolute;
-	top: 586px;
+	top: 582px;
 	left: -24px;
 }
 #main #mouse-over img{
