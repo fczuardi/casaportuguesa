@@ -94,6 +94,7 @@ function loadNextPhotoPage(){
       next_page++;
       ajax_currently_loading = false;
       $('.recentes li a').mouseover(recentPhotoHover);
+		  $('#mouse-over').mouseout(closeHover);
   });
   return false;
 }
@@ -109,9 +110,14 @@ function recentPhotoHover(event){
   var li = $(this).parent('li');
   var li_offset = li.offset();
   var over = $('#mouse-over');
+  over.css('display', 'block');
   over.html(li.html());
   over.css('top', li_offset['top'] - 252);
   over.css('left', li_offset['left'] - 174);
+  // event.stopPropagation();
+}
+function closeHover(event){
+  $('#mouse-over').css('display', 'none');
 }
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
@@ -120,6 +126,7 @@ $(document).ready(function() {
   $('body').click(dismissPopup);
   $(window).scroll(checkScrollEnd);
   $('.recentes li a').mouseover(recentPhotoHover);
+  $('#mouse-over').mouseout(closeHover);
 
   updateCounter();
   showMessagePopup();
