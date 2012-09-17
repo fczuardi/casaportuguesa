@@ -6,14 +6,14 @@ var content = [
     {
         "subscription_id": "1",
         "object": "user",
-        "object_id": "1234",
+        "object_id": "itatibafoo",
         "changed_aspect": "media",
         "time": 1297286541
     },
     {
         "subscription_id": "2",
         "object": "tag",
-        "object_id": "nofilter",
+        "object_id": "itatibabar",
         "changed_aspect": "media",
         "time": 1297286541
     }
@@ -23,6 +23,12 @@ var options = {
   host: 'localhost',
   port: 8888,
   path: '/mnmo/casaportuguesa/instagram_callback.php',
+  /*
+  host: 'umacasaportuguesacomcerteza.com',
+  port: 80,
+  path: '/instagram_callback.php',
+  */
+
   method: 'POST'
 };
 

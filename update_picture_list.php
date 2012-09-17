@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', '0');
 $db = "fotos.sqlite";
 $db_table_name = 'itatibafoo';
 $tags = array('itatibafoo', 'food');
@@ -12,7 +12,11 @@ if(is_null($tag)) {
   $tag = "itatibafoo";
 }
 $client_id = file_get_contents("clientID.txt");
-$min_tag_id = file_get_contents("min_tag_id.txt");
+if ($_GET['partial'] == 'yes'){
+  $min_tag_id = file_get_contents("min_tag_id.txt");
+}else{
+  $min_tag_id = '';
+}
 
 $next_url = $_GET['next_url'];
 if(is_null($next_url)) {
@@ -36,6 +40,7 @@ $ok = sqlite_exec($handle, $q, $error);
 
 function updateDB($instagram_response, $handle, $db_table_name){
     $results = json_decode($instagram_response, true);
+
     foreach ($results["data"] as $photo_data) {
       $username = sqlite_escape_string($photo_data["user"]["username"]);
       $link = sqlite_escape_string($photo_data["link"]);
@@ -74,17 +79,23 @@ function updateDB($instagram_response, $handle, $db_table_name){
 
   $instagram_response = file_get_contents($next_url);
   if ($instagram_response){
-      updateDB($instagram_response, $handle, $db_table_name);
-      try{
-        $results = json_decode($instagram_response, true);
+    updateDB($instagram_response, $handle, $db_table_name);
+    try{
+      $results = json_decode($instagram_response, true);
+      if ( ($_GET['partial'] == 'yes') && ( $page == 1) ){
+        $min_tag_id = $results["pagination"]["min_tag_id"];
+        file_put_contents("min_tag_id.txt", $min_tag_id);
+        $next_url = NULL;
+      } else{
         $next_url = $results["pagination"]["next_url"];
         $instagram_response = file_get_contents($next_url);
-      }catch(Exception $e){
-        continue;
       }
-      if (!is_null($next_url)){
-        $page +=1;
-        ?>
+    }catch(Exception $e){
+      continue;
+    }
+    if (!is_null($next_url)){
+      $page +=1;
+      ?>
 <html>
 <head>
   <meta http-equiv="refresh" content="2;URL='?<?php echo "page=$page&next_url=" . urlencode($next_url);?>'">
@@ -96,10 +107,10 @@ function updateDB($instagram_response, $handle, $db_table_name){
   </pre>
 </body>
 </html>
-        <?php
-      }else{
-        echo "the end";
-      }
-}
+      <?php
+    }else{
+      echo "the end";
+    }
+  }
 sqlite_close($handle);
 ?>
