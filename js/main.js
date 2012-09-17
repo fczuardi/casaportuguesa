@@ -110,8 +110,8 @@ function recentPhotoHover(event){
   var li_offset = li.offset();
   var over = $('#mouse-over');
   over.html(li.html());
-  over.css('top', li_offset['top'] - 230);
-  over.css('left', li_offset['left'] - 120);
+  over.css('top', li_offset['top'] - 252);
+  over.css('left', li_offset['left'] - 174);
 }
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
