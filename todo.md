@@ -1,3 +1,96 @@
+Segunda 16-setembro:
+====================
+
+Pessoal
+-------
+- Pagar condominio e escola
+- cancelar aula de guitarra de terça
+
+backend
+------
+- data de criacao no banco
+- converter home para php e carregar listas de fotos recentes do banco
+- adicionar campo featured no bd
+- listar as features na home
+  - se tem feature vazia ou invalida, preenche com top-like
+- trigger para atualizar bd com novas fotos a partir da callback do real-time
+- terminar o cron que passa por todas as fotos e atualiza os likes
+- trigger para mudança da home na primeira foto do usuario:antoniograssi
+  - id = 3229331
+  - primeiro destaque ja vai ser preenchido com a foto deste user
+
+frontend
+------
+- implementar mouseover
+- versao admin da home
+  - textfield de ID em todas as fotos pequenas
+  - textfield sobre as de destaque e um botao de atualizar (copia o id de baixo e cola em cima)
+  - dois checkboxes em cada foto:
+    - blacklist user
+    - blacklist photo
+
+
+
+Next
+=====
+
+frontend
+---------
+- lazy loading?
+
+backend
+-------
+- pensar no fim da promoção
+  - testar 5k requests no menor tempo possivel
+  - parar o cron pelo menos 1 hora antes da paulada final
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 OK - IE9, 8, 7, 6
 =================
 
