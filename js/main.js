@@ -6,6 +6,7 @@ if (!Date.now) {
 }
 
 var next_page = 2;
+var ajax_currently_loading = false;
 
 function tabClicked(event){
   var aside_id = $(this).attr('href');
@@ -84,22 +85,30 @@ function hideNotFoundImages(){
     }
   });
 }
-function loadNextPhotoPage(event){
-  // ajax_more_photos.php?page=2
+function loadNextPhotoPage(){
   var url = "ajax_more_photos.php?page="+next_page;
   $.get(url,function(data) {
       var posts = $(data).find('li');
       $('.recentes').append(posts);
       hideNotFoundImages();
       next_page++;
+      ajax_currently_loading = false;
   });
   return false;
+}
+function checkScrollEnd(event){
+  if ($(this).scrollTop() + $('header .bg').height() + 290 > $('#main').height()){
+    ajax_currently_loading = true;
+    loadNextPhotoPage();
+  }
 }
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
   $('#message-popup .close-button').click(hideMessagePopup);
   $('#popup-opener a').click(hidePopupLauncher);
   $('body').click(dismissPopup);
+  $(window).scroll(checkScrollEnd);
+
   updateCounter();
   showMessagePopup();
   $(window).load(hideNotFoundImages);

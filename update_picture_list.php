@@ -1,19 +1,24 @@
 <?php
 ini_set('display_errors', '0');
 $db = "fotos.sqlite";
-$db_table_name = 'itatibafoo';
-$tags = array('umacasaportuguesacomcerteza', 'casalusa');
-$page = $_GET['page'];
-if(is_null($page)) {
-  $page = 1;
-}
 $tag = $_GET['tag'];
 if(is_null($tag)) {
   $tag = "itatibafoo";
 }
+$tags = array('umacasaportuguesacomcerteza', 'casalusa');
+if (in_array($tag, $tags)){
+  $db_table_name = 'casalusa';
+} else{
+  $db_table_name = 'itatibafoo';
+}
+$min_tag_id_filename = "$db_table_name.min_tag_id.txt";
+$page = $_GET['page'];
+if(is_null($page)) {
+  $page = 1;
+}
 $client_id = file_get_contents("clientID.txt");
 if ($_GET['partial'] == 'yes'){
-  $min_tag_id = file_get_contents("min_tag_id.txt");
+  $min_tag_id = file_get_contents($min_tag_id_filename);
 }else{
   $min_tag_id = '';
 }
@@ -84,7 +89,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
       $results = json_decode($instagram_response, true);
       if ( ($_GET['partial'] == 'yes') && ( $page == 1) ){
         $min_tag_id = $results["pagination"]["min_tag_id"];
-        file_put_contents("min_tag_id.txt", $min_tag_id);
+        file_put_contents($min_tag_id_filename, $min_tag_id);
         $next_url = NULL;
       } else{
         $next_url = $results["pagination"]["next_url"];
@@ -98,7 +103,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
       ?>
 <html>
 <head>
-  <meta http-equiv="refresh" content="2;URL='?<?php echo "page=$page&next_url=" . urlencode($next_url);?>'">
+  <meta http-equiv="refresh" content="2;URL='?<?php echo "page=$page&tag=$tag&next_url=" . urlencode($next_url);?>'">
 </head>
 <body>
   <pre>

@@ -23,9 +23,9 @@
 $page = 1;
 $page_size = 28;
 $page_begin = ($page-1) * $page_size;
-// $page_end = $page_begin + ($page_size-1);
 $db = "fotos.sqlite";
-$db_table_name = 'itatibafoo';
+$db_table_name = 'casalusa';
+// $db_table_name = 'itatibafoo';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
 $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 $query = sqlite_query($handle, $q);
@@ -80,8 +80,6 @@ foreach ($result as $entry) {
 }
           ?>
 	      </ol>
-        <p>
-          <a href="#" onclick="return loadNextPhotoPage(this);">more...</a>
 <!--
 				<div id="mouse-over">
 					<a href="#"><img src="img/foto-fake.jpg"></img></a>
