@@ -97,10 +97,15 @@ function loadNextPhotoPage(){
   return false;
 }
 function checkScrollEnd(event){
-  if ($(this).scrollTop() + $('header .bg').height() + 290 > $('#main').height()){
+  if (ajax_currently_loading) {return false;}
+  if (($(this).scrollTop() + $(this).height() - 130) > $('#main').height()){ //171
     ajax_currently_loading = true;
+    console.log('next')
     loadNextPhotoPage();
   }
+}
+function recentPhotoHover(event){
+  $('#mouse-over').html($(this).parent('li').html());
 }
 $(document).ready(function() {
   $('header nav a').click(tabClicked);
@@ -108,6 +113,7 @@ $(document).ready(function() {
   $('#popup-opener a').click(hidePopupLauncher);
   $('body').click(dismissPopup);
   $(window).scroll(checkScrollEnd);
+  $('.recentes li a').mouseover(recentPhotoHover);
 
   updateCounter();
   showMessagePopup();

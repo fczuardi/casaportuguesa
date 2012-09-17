@@ -80,10 +80,9 @@ foreach ($result as $entry) {
 }
           ?>
 	      </ol>
-<!--
 				<div id="mouse-over">
-					<a href="#"><img src="img/foto-fake.jpg"></img></a>
 				</div>
+<!--
  -->
       </div> <!-- main -->
       <div id="popups">
