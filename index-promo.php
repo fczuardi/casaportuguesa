@@ -209,7 +209,7 @@
               <p>
                 A [kameraphoto] é um colectivo de fotógrafos fundado em Janeiro de 2003. É uma estrutura agregadora de diferentes olhares da fotografia contemporânea portuguesa, comprometida com a criação e realização de projectos colectivos. O colectivo incentiva, igualmente, os seus membros a realizar projectos pessoais. O empenho dedicado a produções colectivas bem como a individuais torna a [kameraphoto] num espaço crítico de promoção da fotografia que permite à estrutura ser eclética nas suas visões e percepções do mundo, bem como nas diversas formas expressas através do suporte fotográfico.
               </p>
-							<p>O colectivo conta actualmente com 12 membros: Alexandre Almeida, Augusto Brázio, Céu Guarda, Guillaume Pazat, João Pina, Jordi Burch, Martim Ramos, Nelson d'Aires, Pauliana Valente Pimentel, Pedro Letria, Sandra Rocha e Valter Vinagre.</p>
+							<p>Fazem parte do projeto: Jordi Burch, Alexandre de Almeida e Guillaume Pazat.</p>
             </div>
           </section>
           <section>
