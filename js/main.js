@@ -85,8 +85,10 @@ function hideNotFoundImages(){
     }
   });
 }
-function loadNextPhotoPage(){
-  var url = "ajax_more_photos.php?page="+next_page;
+function loadNextPhotoPage(url){
+  if (!url){
+    var url = "ajax_more_photos.php?page="+next_page;
+  }
   $.get(url,function(data) {
       var posts = $(data).find('li');
       $('.recentes').append(posts);

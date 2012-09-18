@@ -12,8 +12,26 @@ $query = sqlite_query($handle, $q);
 $result = sqlite_fetch_all($query, SQLITE_ASSOC);
 echo "<ol>";
 foreach ($result as $entry) {
-  echo '<li><a href="' . $entry["link"] . '"><img src="'
-                       . $entry["image_url"] . '"></img></a></li>';
+  if ($_GET["admin"] == yes){
+  echo '<li data-username="'.$entry["username"].'" data-photo_id="'.$entry["photo_id"].'" data-featured="'.$entry["featured"].'">
+          <a href="' . $entry["link"] . '"><img src="'
+                     . $entry["image_url"] . '"></img></a>
+          <fieldset>
+            <p class="username-label">' . $entry["username"] . '</p>
+            <label class="photo-id"><textarea>' . $entry["photo_id"] . '</textarea>
+            <span>
+              <i class="destaque-icon"></i>
+              <i class="blacklist-photo-icon"></i>
+              <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" />
+              <i class="blacklist-user-icon"></i>
+              <input type="checkbox" name="blacklisted-users[' . $entry["username"] . ']" />
+            </span>
+          </fieldset>
+        </li>';
+  }else{
+    echo '<li><a href="' . $entry["link"] . '"><img src="'
+                         . $entry["image_url"] . '"></img></a></li>';
+  }
 }
 echo "</ol>";
 ?>
