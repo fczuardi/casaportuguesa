@@ -697,6 +697,10 @@ header nav ul li.external:hover{
 #main ol.destaques li a {
 	position: absolute;
 }
+#main ol.destaques li img{
+  width: 256px;
+  height: 256px;
+}
 #main ol.destaques li span {
 	position: absolute;
 	right: 0px;

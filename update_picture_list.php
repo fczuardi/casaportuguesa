@@ -38,6 +38,7 @@ $q = "CREATE TABLE $db_table_name (
     image_url TEXT,
     created_time DATETIME,
     featured INTEGER,
+    featured_time DATETIME,
     photo_id TEXT UNIQUE,
     user_id TEXT
     )";
@@ -56,7 +57,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
       $photo_id = sqlite_escape_string($photo_data["id"]);
       $user_id = sqlite_escape_string($photo_data["user"]["id"]);
       $q = "INSERT OR REPLACE INTO
-                    $db_table_name(  id, featured,
+                    $db_table_name(  id, featured, featured_time,
                     username,
                     link,
                     likes_count,
@@ -66,6 +67,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
                     user_id)
             VALUES((select id from $db_table_name where photo_id = '$photo_id') ,
                    (select featured from $db_table_name where photo_id = '$photo_id') ,
+                   (select featured_time from $db_table_name where photo_id = '$photo_id') ,
                     '$username',
                     '$link',
                     '$likes_count',

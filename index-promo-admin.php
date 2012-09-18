@@ -30,7 +30,11 @@ $db_table_name = 'casalusa';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
 $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 $query = sqlite_query($handle, $q);
-$result = sqlite_fetch_all($query, SQLITE_ASSOC);
+$recent = sqlite_fetch_all($query, SQLITE_ASSOC);
+
+$q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+$query = sqlite_query($handle, $q);
+$featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 ?>
   <body>
     <!--[if lt IE 7]>
@@ -61,21 +65,76 @@ $result = sqlite_fetch_all($query, SQLITE_ASSOC);
         <img src="img/ref-promo.png" />
       </div> -->
       <div id="main">
+          <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if (count($featured) > 0){
+    //clean old featured flags
+    $old_featured_ids = array();
+    foreach ($featured as $old_featured) {
+      $old_featured_ids[] = "'". $old_featured["id"] . "'";
+    }
+    $old_featured_list = implode(',', $old_featured_ids);
+    $q = "UPDATE $db_table_name SET featured=NULL WHERE id IN($old_featured_list)";
+    $ok = sqlite_exec($handle, $q, $error);
+  }
+
+  $q = "";
+  foreach ($_POST['destaques'] as $key => $photo_id) {
+    if ($photo_id == ''){
+      continue;
+    }
+    $position = $key;
+    $q .= "UPDATE $db_table_name
+           SET featured='$position',
+               featured_time=datetime('now')
+          WHERE photo_id = '$photo_id';";
+  }
+  $ok = sqlite_exec($handle, $q, $error);
+
+
+}
+$q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY featured";
+$query = sqlite_query($handle, $q);
+$featured = sqlite_fetch_all($query, SQLITE_ASSOC);
+
+
+$q = "SELECT * FROM $db_table_name ORDER BY likes_count DESC LIMIT 0, 9";
+$query = sqlite_query($handle, $q);
+$most_popular = sqlite_fetch_all($query, SQLITE_ASSOC);
+$most_popular = array_reverse($most_popular);
+
+$home_showcase = array();
+
+foreach ($featured as $featured_photo){
+  $home_showcase[$featured_photo["featured"]-1] = $featured_photo;
+}
+
+for($i=0; $i<8; $i++){
+  if(!$home_showcase[$i]){
+    $home_showcase[$i] = array_pop($most_popular);
+  }
+}
+          ?>
+        <form action="" method="POST">
         <ol class="destaques">
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[0]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[1]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[2]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[3]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[4]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[5]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[6]"></textarea>/></li>
-          <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[7]"></textarea>/></li>
+          <?php
+for($index=0; $index<8; $index++){
+  $entry = $home_showcase[$index];
+// foreach ($home_showcase as $index => $entry) {
+  $id_to_display = '';
+  if ($entry["featured"] > 0){
+    $id_to_display = $entry["photo_id"];
+  }
+  echo '<li><a href="' . $entry["link"] . '"><img src="'. $entry["image_url"].
+        '"></img></a><textarea name="destaques['.($index+1).']">'.$id_to_display.'</textarea>/></li>';
+}
+          ?>
         </ol>
-        <p class="primeiro"><a href="#">Clique aqui para Atualizar</a></p>
+        <p class="primeiro"><a href="#" id="submit_link">Clique aqui para Atualizar</a></p>
         <p class="ultimo">Copie os ids e cole nos destaques acima para trocar de destaques.</p>
         <ol class="recentes">
           <?php
-foreach ($result as $entry) {
+foreach ($recent as $entry) {
   echo '<li data-username="'.$entry["username"].'" data-photo_id="'.$entry["photo_id"].'" data-featured="'.$entry["featured"].'">
           <a href="' . $entry["link"] . '"><img src="'
                      . $entry["image_url"] . '"></img></a>
@@ -96,8 +155,7 @@ foreach ($result as $entry) {
         </ol>
         <div id="mouse-over">
         </div>
-<!--
- -->
+</form>
       </div> <!-- main -->
     </div> <!-- content -->
 
