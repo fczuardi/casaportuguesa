@@ -73,8 +73,7 @@ $result = sqlite_fetch_all($query, SQLITE_ASSOC);
         </ol>
         <p class="primeiro"><a href="#">Clique aqui para Atualizar</a></p>
         <p>Para definir um destaque, copie o ID de qualquer foto abaixo e cole num campo acima.</p>
-        <p>Para bloquear <span class="amarelo">uma foto</span>, marque o ícone amarelo.</p>
-				<p>Para bloquear <span class="vermelho">todas as fotos de um usuário</span>, marque o ícone vermelho.</p>
+        <p>Você pode <span class="amarelo">bloquear uma foto</span> ou <span class="vermelho">bloquear todas as fotos de um usuário</span>.</p>
         <p class="ultimo">Fotos com estrela já foram destaque algum dia.</p>
         <ol class="recentes">
           <?php
