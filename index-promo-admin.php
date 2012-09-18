@@ -89,7 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                featured_time=datetime('now')
           WHERE photo_id = '$photo_id';";
   }
-  $ok = sqlite_exec($handle, $q, $error);
+  if ($q != ""){
+    $ok = sqlite_exec($handle, $q, $error);
+  }
 
 
 }
