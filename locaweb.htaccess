@@ -1,9 +1,13 @@
-# AuthUserFile /home/iatacannabrava/.htpasswd
-# AuthGroupFile /dev/null
-# AuthName Restrito
-# AuthType Basic
-# <Limit GET POST>
-# require user casa
-# </Limit>
+AuthUserFile /home/iatacannabrava/.htpasswd
+AuthGroupFile /dev/null
+AuthName Restrito
+AuthType Basic
+
+<Limit GET POST>
+require user casa
+</Limit>
+
+<Files "/home/iatacannabrava/casaportuguesa/index-promo-admin.php">
+</Files>
 
 AddType text/x-component .htc
