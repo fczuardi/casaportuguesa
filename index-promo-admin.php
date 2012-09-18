@@ -72,7 +72,10 @@ $result = sqlite_fetch_all($query, SQLITE_ASSOC);
           <li><a href="#"><img src="img/foto-fake.jpg"></img></a><textarea name="destaques[7]"></textarea>/></li>
         </ol>
         <p class="primeiro"><a href="#">Clique aqui para Atualizar</a></p>
-        <p class="ultimo">Copie os ids e cole nos destaques acima para trocar de destaques.</p>
+        <p>Para definir um destaque, copie o ID de qualquer foto abaixo e cole num campo acima.</p>
+        <p>Para bloquear <span class="amarelo">uma foto</span>, marque o ícone amarelo.</p>
+				<p>Para bloquear <span class="vermelho">todas as fotos de um usuário</span>, marque o ícone vermelho.</p>
+        <p class="ultimo">Fotos com estrela já foram destaque algum dia.</p>
         <ol class="recentes">
           <?php
 foreach ($result as $entry) {

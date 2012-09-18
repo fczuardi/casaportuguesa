@@ -20,8 +20,8 @@ ol.destaques textarea{
   background-color: rgba(0, 0, 0, 0.7);
   bottom: 5px;
   color: white;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 29px;
   margin-left: 0;
   overflow: hidden;
   position: absolute;
@@ -47,7 +47,7 @@ ol.destaques textarea{
 #main ol.recentes li .photo-id textarea{
   height:2em;
   width: 110px;
-  font-size: 12px;
+  font-size: 11px;
 	margin-left:10px;
 	margin-right:10px;
 }
@@ -66,8 +66,10 @@ ol.destaques textarea{
 }
 #main ol.recentes li label i.destaque-icon{
   background-position: 0 16px;
-  margin-right:9px;
-  margin-left:0px;
+	position: absolute;
+	top: -137px;
+	left: 5px;
+	margin: 0px;
 }
 #main ol.recentes li label i.blacklist-photo-icon{
   background-position: 0 0px;
@@ -77,6 +79,18 @@ ol.destaques textarea{
 }
 #main ol.recentes li label input[type="checkbox"]{
   height:12px;
+}
+
+span.amarelo{
+	color: #ffa500;
+}
+
+span.vermelho{
+	color: #ff0042;
+}
+
+#main p.menor{
+	font-size:15px;
 }
 
 .primeiro a:hover{
