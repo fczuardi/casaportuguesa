@@ -126,7 +126,7 @@ for($index=0; $index<8; $index++){
     $id_to_display = $entry["photo_id"];
   }
   echo '<li><a href="' . $entry["link"] . '"><img src="'. $entry["image_url"].
-        '"></img></a><textarea name="destaques['.($index+1).']">'.$id_to_display.'</textarea>/></li>';
+        '"></img></a><textarea name="destaques['.($index+1).']">'.$id_to_display.'</textarea><span>'. $entry["likes_count"] .'</span></li>';
 }
           ?>
         </ol>
