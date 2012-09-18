@@ -6,6 +6,13 @@ Pessoal
 - OK - Pagar condominio e escola
 - OK - cancelar aula de guitarra de terça
 
+Locaweb
+-------
+
+- OK - por senha no arquivo de admin
+-  por senha no arquivo do phpliteadmin
+
+
 frontend
 ------
 - OK - lazy loading
