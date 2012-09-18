@@ -9,16 +9,18 @@ Pessoal
 frontend
 ------
 - OK - lazy loading
-- implementar mouseover nas recentes pequenas
-
+- OK - implementar mouseover nas recentes pequenas
 
 - exibir numero de likes no hover sas fotos de destaque
+
 - versao admin da home
-  - textfield de ID em todas as fotos pequenas
-  - textfield sobre as de destaque e um botao de atualizar (copia o id de baixo e cola em cima)
-  - dois checkboxes em cada foto:
-    - blacklist user
-    - blacklist photo
+  - OK - textfield de ID em todas as fotos pequenas
+  - OK - textfield sobre as de destaque e um botao de atualizar (copia o id de baixo e cola em cima)
+  - OK - dois checkboxes em cada foto:
+    - OK - blacklist user
+    - OK - blacklist photo
+  - clique no textfield das recentes deve selecionar tudo automaticamente
+  - onchance dos textfields dos destaques ja deve dar um preview da foto que o cara colou
 
 
 
