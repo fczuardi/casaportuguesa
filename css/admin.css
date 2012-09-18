@@ -46,8 +46,10 @@ ol.destaques textarea{
 }
 #main ol.recentes li .photo-id textarea{
   height:2em;
-  width: 100%;
-  font-size: 16px;
+  width: 110px;
+  font-size: 12px;
+	margin-left:10px;
+	margin-right:10px;
 }
 #main ol.recentes li .destaque input{
   width:3em;
@@ -60,10 +62,12 @@ ol.destaques textarea{
   width:16px;
   height:16px;
   margin-left:7px;
+  margin-top:7px;
 }
 #main ol.recentes li label i.destaque-icon{
   background-position: 0 16px;
   margin-right:9px;
+  margin-left:0px;
 }
 #main ol.recentes li label i.blacklist-photo-icon{
   background-position: 0 0px;
