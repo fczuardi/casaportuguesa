@@ -29,7 +29,11 @@ $db_table_name = 'casalusa';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
 $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 $query = sqlite_query($handle, $q);
-$result = sqlite_fetch_all($query, SQLITE_ASSOC);
+$recent = sqlite_fetch_all($query, SQLITE_ASSOC);
+
+$q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+$query = sqlite_query($handle, $q);
+$featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 ?>
   <body>
     <!--[if lt IE 7]>
@@ -60,21 +64,46 @@ $result = sqlite_fetch_all($query, SQLITE_ASSOC);
 				<img src="img/ref-promo.png" />
 			</div> -->
       <div id="main">
-	      <ol class="destaques">
-	      	<li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-		      <li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-			    <li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-			  	<li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-		      <li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-			    <li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-			  	<li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
-		      <li><a href="#"><img src="img/foto-fake.jpg"></img></a><span>002</span></li>
+<?php
+$q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY featured";
+$query = sqlite_query($handle, $q);
+$featured = sqlite_fetch_all($query, SQLITE_ASSOC);
+
+
+$q = "SELECT * FROM $db_table_name ORDER BY likes_count DESC LIMIT 0, 9";
+$query = sqlite_query($handle, $q);
+$most_popular = sqlite_fetch_all($query, SQLITE_ASSOC);
+$most_popular = array_reverse($most_popular);
+
+$home_showcase = array();
+
+foreach ($featured as $featured_photo){
+  $home_showcase[$featured_photo["featured"]-1] = $featured_photo;
+}
+
+for($i=0; $i<8; $i++){
+  if(!$home_showcase[$i]){
+    $home_showcase[$i] = array_pop($most_popular);
+  }
+}
+          ?>
+        <ol class="destaques">
+          <?php
+for($index=0; $index<8; $index++){
+  $entry = $home_showcase[$index];
+  $id_to_display = '';
+  if ($entry["featured"] > 0){
+    $id_to_display = $entry["photo_id"];
+  }
+  echo '<li><a href="' . $entry["link"] . '"><img src="'. $entry["image_url"].'"></img></a></li>';
+}
+          ?>
 	      </ol>
 				<p class="primeiro">Os destaques acima misturam as mais votadas no instagram com nossas preferidas</p>
 				<p class="ultimo">Opine você também: dê um like nas fotos que você mais gosta</p>
 	      <ol class="recentes">
           <?php
-foreach ($result as $entry) {
+foreach ($recent as $entry) {
   echo '<li><a href="' . $entry["link"] . '"><img src="'
                        . $entry["image_url"] . '"></img></a></li>';
 }
