@@ -56,30 +56,34 @@ function updateDB($instagram_response, $handle, $db_table_name){
       $created_time = "datetime(" . $photo_data["created_time"] . ", 'unixepoch')";
       $photo_id = sqlite_escape_string($photo_data["id"]);
       $user_id = sqlite_escape_string($photo_data["user"]["id"]);
-      $q = "INSERT OR REPLACE INTO
-                    $db_table_name(  id, featured, featured_time,
-                    username,
-                    link,
-                    likes_count,
-                    image_url,
-                    created_time,
-                    photo_id,
-                    user_id)
-            VALUES((select id from $db_table_name where photo_id = '$photo_id') ,
-                   (select featured from $db_table_name where photo_id = '$photo_id') ,
-                   (select featured_time from $db_table_name where photo_id = '$photo_id') ,
-                    '$username',
-                    '$link',
-                    '$likes_count',
-                    '$image_url',
-                    $created_time,
-                    '$photo_id',
-                    '$user_id');";
-      $ok = sqlite_exec($handle, $q, $error);
-      if(!$ok){
-      echo "<hr>";
-        var_dump($q);
-      die();
+      if(is_null($photo_data["link"])){
+        var_dump($photo_data);
+      }else{
+        $q = "INSERT OR REPLACE INTO
+                      $db_table_name(  id, featured, featured_time,
+                      username,
+                      link,
+                      likes_count,
+                      image_url,
+                      created_time,
+                      photo_id,
+                      user_id)
+              VALUES((select id from $db_table_name where photo_id = '$photo_id') ,
+                     (select featured from $db_table_name where photo_id = '$photo_id') ,
+                     (select featured_time from $db_table_name where photo_id = '$photo_id') ,
+                      '$username',
+                      '$link',
+                      '$likes_count',
+                      '$image_url',
+                      $created_time,
+                      '$photo_id',
+                      '$user_id');";
+        $ok = sqlite_exec($handle, $q, $error);
+        if(!$ok){
+          echo "<hr>";
+          var_dump($q);
+          die();
+        }
       }
     };
 }
