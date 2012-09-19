@@ -233,9 +233,9 @@ foreach ($recent as $entry) {
           <fieldset>
             <p class="username-label">' . $entry["username"] . '</p>
             <label class="photo-id"><textarea>' . $entry["photo_id"] . '</textarea>
-            <span>
-              <i class="destaque-icon"></i>
-              <i class="blacklist-photo-icon"></i>
+            <span>'.
+            (!is_null($entry["featured_time"])?'<i class="destaque-icon"></i>':'').
+              '<i class="blacklist-photo-icon"></i>
               <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" '.
               (($entry["blacklisted_photo"] == '1')?'checked=checked':'') . '/>
               <i class="blacklist-user-icon"></i>
