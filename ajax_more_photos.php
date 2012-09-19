@@ -56,7 +56,7 @@ foreach ($result as $entry) {
           </fieldset>
         </li>';
   }else{
-    echo '<li><a href="' . $entry["link"] . '"><img src="'
+    echo '<li><a target="_blank" href="' . $entry["link"] . '"><img src="'
                          . $entry["image_url"] . '"></img></a></li>';
   }
 }
