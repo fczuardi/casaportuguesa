@@ -95,7 +95,8 @@ for($index=0; $index<8; $index++){
   if ($entry["featured"] > 0){
     $id_to_display = $entry["photo_id"];
   }
-  echo '<li><a href="' . $entry["link"] . '"><img src="'. $entry["image_url"].'"></img></a></li>';
+  $class = ($index == 0) ? 'class="first"':'';
+  echo '<li '. $class .'><a href="' . $entry["link"] . '"><img src="'. $entry["image_url"].'"></img><span class="likes_count">'. $entry["likes_count"] .'</span></a></li>';
 }
           ?>
 	      </ol>

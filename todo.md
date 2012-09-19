@@ -8,8 +8,8 @@ frontend
 - OK - [home-velha] quando contador estiver no zero a pagina da refresh a cada 10 segundos.
 - OK - [bug] mouseover esta variando conforme tamanho da janela
 - OK - [bug] algumas fotos do pangeiadedois estavam sem link: https://groups.google.com/forum/?fromgroups=#!topic/instagram-api-developers/LgrXLej4kDU
+- OK - [home] exibir numero de likes no hover das fotos de destaque
 
-- [home] exibir numero de likes no hover das fotos de destaque
 
 
 backend

@@ -710,6 +710,15 @@ header nav ul li.external:hover{
 	background-repeat: no-repeat;
 	background-position: 0px 50px;
 }
+#main ol.destaques li .likes_count,
+#main ol.destaques:hover li.first .likes_count{
+  display: none;
+}
+#main ol.destaques li a:hover .likes_count,
+#main ol.destaques li.first .likes_count,
+#main ol.destaques:hover li.first a:hover .likes_count{
+  display: block;
+}
 #main p.primeiro {
 	padding-top: 27px;
 	color: white;
