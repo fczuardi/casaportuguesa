@@ -4,7 +4,9 @@ function checkScrollEnd(event){
   if (ajax_currently_loading) {return false;}
   if (($(this).scrollTop() + $(this).height() - 130) > $('#main').height()){ //171
     ajax_currently_loading = true;
-    loadNextPhotoPage("ajax_more_photos.php?admin=yes&page="+next_page);
+    var url = "ajax_more_photos.php?nocache="+(new Date().getTime())+"&page="+next_page;
+
+    loadNextPhotoPage("ajax_more_photos.php?admin=yes&nocache="+(new Date().getTime())+"&page="+next_page);
   }
 }
 function itemUpdated(event){

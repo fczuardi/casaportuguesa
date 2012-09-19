@@ -143,7 +143,7 @@ function paginationLoaded(){
 }
 function loadNextPhotoPage(url){
   if (!url){
-    var url = "ajax_more_photos.php?page="+next_page;
+    var url = "ajax_more_photos.php?nocache="+(new Date().getTime())+"&page="+next_page;
   }
   expectedImages +=28;
   $.get(url,function(data) {
