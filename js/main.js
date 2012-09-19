@@ -151,7 +151,7 @@ function loadNextPhotoPage(url){
       $('.recentes').append(posts);
       next_page++;
       if (expectedImages == $('.recentes li').length){
-        $('#main').css('min-height', $('#main').height() + 4*143)
+        $('#main').css('min-height', $('#main').height() + 2*143)
       }
       paginationLoaded();
       ajax_currently_loading = false;
