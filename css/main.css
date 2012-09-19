@@ -342,15 +342,9 @@ header nav ul li.external:hover{
   margin-top:0px;
   color: #8c8c8c;
 }
-#popups{
-  position: relative;
-  top:-27px;
-  min-height:600px;
-  overflow: hidden;
-}
 #content aside{
   position: relative;
-  top: 0px;
+  top: -27px;
   padding:28px;
   padding-top: 9px;
   padding-right: 29px;
@@ -414,6 +408,7 @@ header nav ul li.external:hover{
   background-color: rgba(0, 159, 78, 0.9);
   -pie-background: rgba(0, 159, 78, 0.9);
   behavior: url(ie/PIE.htc);
+  z-index:0;
 }
 #content #popup-opener{
   left:709px;
@@ -453,7 +448,7 @@ header nav ul li.external:hover{
   top:-60px;
 }
 #content #message-popup.closed{
-  top:-380px;
+  top:-389px;
 }
 #content #message-popup h1{
   font-size: 36px;

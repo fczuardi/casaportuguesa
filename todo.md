@@ -5,12 +5,12 @@ frontend
 ------
 - OK - [home-velha] contagem regressiva, ao chegar no zero deve mudar o texto para:
   "a qualquer momento as primeiras fotos aparecerão aqui, fique ligado"
+- OK - [home-velha] quando contador estiver no zero a pagina da refresh a cada 10 segundos.
 - OK - [bug] mouseover esta variando conforme tamanho da janela
+- OK - [bug] algumas fotos do pangeiadedois estavam sem link: https://groups.google.com/forum/?fromgroups=#!topic/instagram-api-developers/LgrXLej4kDU
 
-- [home-velha] quando contador estiver no zero a pagina da refresh a cada 30 segundos.
-- [home] exibir numero de likes no hover sas fotos de destaque
-- [admin] clique no textfield das recentes deve selecionar tudo automaticamente
-- [admin] onchance dos textfields dos destaques ja deve dar um preview da foto que o cara colou
+- [home] exibir numero de likes no hover das fotos de destaque
+
 
 backend
 ------
@@ -38,6 +38,8 @@ Next
 
 frontend
 ---------
+- [admin] clique no textfield das recentes deve selecionar tudo automaticamente
+
 
 backend
 -------
@@ -47,10 +49,13 @@ backend
   - parar o cron pelo menos 1 hora antes da paulada final
 
 
+
+
+
 Limbo
 =====
-- fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
 - logo da Funarte (futuro próximo)
+- fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
 
 
 
