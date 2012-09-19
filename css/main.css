@@ -688,6 +688,7 @@ header nav ul li.external:hover{
 	float: left;
 	width: 256px;
 	height: 256px;
+  display: block;
 }
 #main ol.destaques {
 	position: relative;
@@ -733,13 +734,21 @@ header nav ul li.external:hover{
 	top: 0px;
 	left: -8px;
 }
+
 #main ol.recentes li{
 	width: 143px;
 	height: 143px;
 	margin-right: 4px;
 	margin-bottom: 4px;
+  visibility: hidden;
 }
-#main ol.recentes img{
+#main ol.recentes li.fail{
+  display: none;
+}
+#main ol.recentes li.loaded{
+  visibility: visible;
+}
+#main ol.recentes li.loaded img{
 	width: 143px;
 	height: 143px;
 }

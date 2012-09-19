@@ -1,49 +1,31 @@
-Segunda 16-setembro:
+Lançamento
 ====================
-
-Pessoal
--------
-- OK - Pagar condominio e escola
-- OK - cancelar aula de guitarra de terça
-
-Locaweb
--------
-
-- OK - por senha no arquivo de admin
--  por senha no arquivo do phpliteadmin
-
 
 frontend
 ------
-- OK - lazy loading
-- OK - implementar mouseover nas recentes pequenas
-
-- exibir numero de likes no hover sas fotos de destaque
-
-- versao admin da home
-  - OK - textfield de ID em todas as fotos pequenas
-  - OK - textfield sobre as de destaque e um botao de atualizar (copia o id de baixo e cola em cima)
-  - OK - dois checkboxes em cada foto:
-    - OK - blacklist user
-    - OK - blacklist photo
-  - clique no textfield das recentes deve selecionar tudo automaticamente
-  - onchance dos textfields dos destaques ja deve dar um preview da foto que o cara colou
-
-
+- [home-velha] contagem regressiva, ao chegar no zero deve mudar o texto para:
+  "a qualquer momento as primeiras fotos aparecerão aqui, fique ligado"
+- [home-velha] quando contador estiver no zero a pagina da refresh a cada 30 segundos.
+- [home] exibir numero de likes no hover sas fotos de destaque
+- [admin] clique no textfield das recentes deve selecionar tudo automaticamente
+- [admin] onchance dos textfields dos destaques ja deve dar um preview da foto que o cara colou
 
 backend
 ------
-- OK - data de criacao no banco
-- OK - adicionar campo featured no bd
-- OK - trigger para atualizar bd com novas fotos a partir da callback do real-time
-- OK - converter home para php e carregar listas de fotos recentes do banco
-
-- listar as features na home
-  - se tem feature vazia ou invalida, preenche com top-like
+- admin blacklist para fotos
+- admin blacklist para usuarios
 - terminar o cron que passa por todas as fotos e atualiza os likes
 - trigger para mudança da home na primeira foto do usuario:antoniograssi
   - id = 3229331
   - primeiro destaque ja vai ser preenchido com a foto deste user
+
+
+Locaweb
+-------
+- por senha no arquivo do phpliteadmin
+- bug do heart.png (abrir pedido)
+
+
 
 
 
@@ -60,6 +42,54 @@ backend
 - pensar no fim da promoção
   - testar 5k requests no menor tempo possivel
   - parar o cron pelo menos 1 hora antes da paulada final
+
+
+
+
+
+
+Segunda 16-setembro:
+====================
+
+Pessoal
+-------
+- OK - Pagar condominio e escola
+- OK - cancelar aula de guitarra de terça
+
+Locaweb
+-------
+
+- OK - por senha no arquivo de admin
+
+backend
+------
+- OK - data de criacao no banco
+- OK - adicionar campo featured no bd
+- OK - trigger para atualizar bd com novas fotos a partir da callback do real-time
+- OK - converter home para php e carregar listas de fotos recentes do banco
+- OK - listar as features na home
+  - OK - se tem feature vazia, preenche com top-like
+
+
+frontend
+------
+- OK - lazy loading
+- OK - implementar mouseover nas recentes pequenas
+
+
+- versao admin da home
+  - OK - textfield de ID em todas as fotos pequenas
+  - OK - textfield sobre as de destaque e um botao de atualizar (copia o id de baixo e cola em cima)
+  - OK - dois checkboxes em cada foto:
+    - OK - blacklist user
+    - OK - blacklist photo
+
+
+
+
+
+
+
 
 
 
@@ -150,9 +180,9 @@ OK - IE9, 8, 7, 6
 - OK - fazer um html de mentira com o png v10 centralizado
 
 
-- desligar o live.js!!!!
-- adaptacao pro php prover quantos milisegundos faltam
-- para onde devem os links de facebook e twitter linkar?
+- OK - desligar o live.js!!!!
+- WONTFIX - adaptacao pro php prover quantos milisegundos faltam
+- OK - para onde devem os links de facebook e twitter linkar?
 - botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
 - fazer balao fechar tambem quando vc clica fora dele
 

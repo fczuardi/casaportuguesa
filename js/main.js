@@ -7,6 +7,11 @@ if (!Date.now) {
 
 var next_page = 2;
 var ajax_currently_loading = false;
+var brokenImagesCheckInterval;
+var expectedImages = 28;
+var loadedImages = 0;
+var ultima_diferenca = 0; //numero de possiveis fotos quebradas
+var turnosIguais = 0;
 
 function tabClicked(event){
   var aside_id = $(this).attr('href');
@@ -77,26 +82,56 @@ function dismissPopup(event){
   //   hideMessagePopup();
   // }
 }
+function checkImage(image){
+  if (image.height() > 50){
+    image.parents('li').addClass('loaded');
+  }else{
+    image.parents('li').addClass('fail');
+  }
+}
+function recentImageLoaded(event){
+  loadedImages++;
+  checkImage($(this));
+}
 function hideNotFoundImages(){
-  $('.recentes li a').each(function(){
-    if ($(this).width() == 0){
-      $(this).parent('li').css('display', 'none');
-      // $(this).css('display', 'none');
-    }
+  // console.log("hideNotFoundImages");
+  $('.recentes img').each(function(){
+    checkImage($(this));
   });
+  var diferenca = expectedImages - loadedImages;
+  if (diferenca == ultima_diferenca){
+    turnosIguais++;
+  }else{
+    turnosIguais = 0;
+  }
+  // console.log("expected:"+expectedImages+" loaded:"+loadedImages+
+  //             " diferenca:"+diferenca+" ultima_diferenca:"+
+  //             ultima_diferenca+" turnos:"+turnosIguais);
+  ultima_diferenca = diferenca;
+  if((loadedImages == expectedImages)||(turnosIguais == 10)){
+    // console.log("para o intervalo");
+    clearInterval(brokenImagesCheckInterval);
+    loadedImages = expectedImages;
+  }
+}
+function startCheckingForBrokenImages(){
+  clearInterval(brokenImagesCheckInterval);
+  brokenImagesCheckInterval = setInterval(hideNotFoundImages, 1000);
 }
 function loadNextPhotoPage(url){
   if (!url){
     var url = "ajax_more_photos.php?page="+next_page;
   }
+  expectedImages +=28;
   $.get(url,function(data) {
       var posts = $(data).find('li');
       $('.recentes').append(posts);
-      hideNotFoundImages();
       next_page++;
-      ajax_currently_loading = false;
       $('.recentes li a').mouseover(recentPhotoHover);
+      $('.recentes li img').bind('load', 'error', recentImageLoaded);
 		  $('#mouse-over').mouseout(closeHover);
+      ajax_currently_loading = false;
+      startCheckingForBrokenImages();
   });
   return false;
 }
@@ -104,7 +139,8 @@ function checkScrollEnd(event){
   if (ajax_currently_loading) {return false;}
   if (($(this).scrollTop() + $(this).height() - 130) > $('#main').height()){ //171
     ajax_currently_loading = true;
-    console.log('next')
+    // console.log('next')
+    $('#main').css('min-height', $('#main').height() + 4*143)
     loadNextPhotoPage();
   }
 }
@@ -126,11 +162,11 @@ $(document).ready(function() {
   $('#message-popup .close-button').click(hideMessagePopup);
   $('#popup-opener a').click(hidePopupLauncher);
   $('body').click(dismissPopup);
-  $(window).scroll(checkScrollEnd);
   $('.recentes li a').mouseover(recentPhotoHover);
+  $('.recentes li img').bind('load', 'error', recentImageLoaded);
   $('#mouse-over').mouseout(closeHover);
-
   updateCounter();
   showMessagePopup();
-  $(window).load(hideNotFoundImages);
+  $(window).scroll(checkScrollEnd);
+  $(window).load(startCheckingForBrokenImages);
 });
