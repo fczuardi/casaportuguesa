@@ -3,8 +3,10 @@ Lançamento
 
 frontend
 ------
-- [home-velha] contagem regressiva, ao chegar no zero deve mudar o texto para:
+- OK - [home-velha] contagem regressiva, ao chegar no zero deve mudar o texto para:
   "a qualquer momento as primeiras fotos aparecerão aqui, fique ligado"
+- OK - [bug] mouseover esta variando conforme tamanho da janela
+
 - [home-velha] quando contador estiver no zero a pagina da refresh a cada 30 segundos.
 - [home] exibir numero de likes no hover sas fotos de destaque
 - [admin] clique no textfield das recentes deve selecionar tudo automaticamente
@@ -18,6 +20,7 @@ backend
 - trigger para mudança da home na primeira foto do usuario:antoniograssi
   - id = 3229331
   - primeiro destaque ja vai ser preenchido com a foto deste user
+- script para limpar fotos que não são mais acessíveis
 
 
 Locaweb
@@ -42,6 +45,45 @@ backend
 - pensar no fim da promoção
   - testar 5k requests no menor tempo possivel
   - parar o cron pelo menos 1 hora antes da paulada final
+
+
+Limbo
+=====
+- fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
+- logo da Funarte (futuro próximo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -183,14 +225,12 @@ OK - IE9, 8, 7, 6
 - OK - desligar o live.js!!!!
 - WONTFIX - adaptacao pro php prover quantos milisegundos faltam
 - OK - para onde devem os links de facebook e twitter linkar?
-- botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
-- fazer balao fechar tambem quando vc clica fora dele
+- WONTFIX - botar o username do cara do lado da foto, como em http://blog.instagram.com/post/24408162773/whp-watchingwatchers
+- OK - fazer balao fechar tambem quando vc clica fora dele
 
-- criar HTML com PNG de como seria a promo funcional para o Iatã aprovar
-- colocar a frase antes do contador
+- OK - criar HTML com PNG de como seria a promo funcional para o Iatã aprovar
+- OK - colocar a frase antes do contador
 
-- fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
-- logo da Funarte (futuro próximo)
 
 
 

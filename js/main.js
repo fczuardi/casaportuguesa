@@ -31,8 +31,8 @@ function tabClicked(event){
     tab.addClass('active');
   }
 }
-function updateCounter(){
-  if (!miliseconds_left){
+function updateCounter(miliseconds_left){
+  if (miliseconds_left === false){
     var final_date = new Date(2012, 8, 20 , 11, 0, 0, 0).getTime(); //20 de setembro de 2012
     var current_date = Date.now();
     var miliseconds_left = final_date - current_date;
@@ -48,6 +48,13 @@ function updateCounter(){
   $('#contador .digit .number').each(function(i){
     $(this).html(digits[i]);
   });
+  if ((digits[0] == 0)&&(digits[1] == 0)&&(digits[2] == 0)&&(digits[3] == 0)){
+    console.log('BOOM');
+    $('#counter-msg').html('a qualquer momento as primeiras fotos aparecerão aqui, fique ligado');
+    setTimeout(function(){
+      window.location.href = window.location.href;
+    }, 10*1000);
+  }
 }
 
 function showMessagePopup(){
@@ -165,7 +172,10 @@ $(document).ready(function() {
   $('.recentes li a').mouseover(recentPhotoHover);
   $('.recentes li img').bind('load', 'error', recentImageLoaded);
   $('#mouse-over').mouseout(closeHover);
-  updateCounter();
+  if (typeof(miliseconds_left)==="undefined"){
+    miliseconds_left = false;
+  }
+  updateCounter(miliseconds_left);
   showMessagePopup();
   $(window).scroll(checkScrollEnd);
   $(window).load(startCheckingForBrokenImages);
