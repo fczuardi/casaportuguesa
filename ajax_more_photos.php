@@ -23,10 +23,18 @@ $blacklisted_users_list = "'" . implode("','", $blacklisted_users) . "'";
 if ($_GET["admin"] == yes){
   $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 }else{
-  $q = "SELECT * FROM $db_table_name WHERE
-        blacklisted_photo IS NULL AND
-        user_id NOT IN($blacklisted_users_list)
-        ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+  if($_GET['showcase_only']=="yes"){
+    $q = "SELECT * FROM $db_table_name WHERE
+          blacklisted_photo IS NULL AND
+          user_id NOT IN($blacklisted_users_list) AND
+          featured_time IS NOT NULL
+          ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+  }else{
+    $q = "SELECT * FROM $db_table_name WHERE
+          blacklisted_photo IS NULL AND
+          user_id NOT IN($blacklisted_users_list)
+          ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+  }
 }
 $query = sqlite_query($handle, $q);
 $result = sqlite_fetch_all($query, SQLITE_ASSOC);

@@ -144,6 +144,9 @@ function paginationLoaded(){
 function loadNextPhotoPage(url){
   if (!url){
     var url = "ajax_more_photos.php?nocache="+(new Date().getTime())+"&page="+next_page;
+    if (window.location.search.indexOf('showcase_only=yes') != -1){
+      url += "&showcase_only=yes";
+    }
   }
   expectedImages +=28;
   $.get(url,function(data) {
@@ -195,4 +198,5 @@ $(document).ready(function() {
   showMessagePopup();
   $(window).scroll(checkScrollEnd);
   $(window).load(startCheckingForBrokenImages);
+
 });
