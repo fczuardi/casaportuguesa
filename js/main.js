@@ -139,6 +139,11 @@ function startCheckingForBrokenImages(){
   clearInterval(brokenImagesCheckInterval);
   brokenImagesCheckInterval = setInterval(hideNotFoundImages, 1000);
 }
+function paginationLoaded(){
+  $('.recentes li a').mouseover(recentPhotoHover);
+  $('.recentes li img').bind('load', 'error', recentImageLoaded);
+  $('#mouse-over').mouseout(closeHover);
+}
 function loadNextPhotoPage(url){
   if (!url){
     var url = "ajax_more_photos.php?page="+next_page;
@@ -151,9 +156,7 @@ function loadNextPhotoPage(url){
       if (expectedImages == $('.recentes li').length){
         $('#main').css('min-height', $('#main').height() + 4*143)
       }
-      $('.recentes li a').mouseover(recentPhotoHover);
-      $('.recentes li img').bind('load', 'error', recentImageLoaded);
-		  $('#mouse-over').mouseout(closeHover);
+      paginationLoaded();
       ajax_currently_loading = false;
       startCheckingForBrokenImages();
   });
@@ -187,9 +190,7 @@ $(document).ready(function() {
   $('#message-popup .close-button').click(hideMessagePopup);
   $('#popup-opener a').click(hidePopupLauncher);
   $('body').click(dismissPopup);
-  $('.recentes li a').mouseover(recentPhotoHover);
-  $('.recentes li img').bind('load', 'error', recentImageLoaded);
-  $('#mouse-over').mouseout(closeHover);
+  paginationLoaded();
   if (typeof(miliseconds_left)==="undefined"){
     miliseconds_left = false;
   }

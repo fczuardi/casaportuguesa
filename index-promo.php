@@ -27,7 +27,7 @@ $db = "fotos.sqlite";
 $db_table_name = 'casalusa';
 // $db_table_name = 'itatibafoo';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
-$q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+$q = "SELECT * FROM $db_table_name WHERE blacklisted_photo IS NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 $query = sqlite_query($handle, $q);
 $recent = sqlite_fetch_all($query, SQLITE_ASSOC);
 
@@ -70,7 +70,7 @@ $query = sqlite_query($handle, $q);
 $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 
 
-$q = "SELECT * FROM $db_table_name ORDER BY likes_count DESC LIMIT 0, 9";
+$q = "SELECT * FROM $db_table_name  WHERE blacklisted_photo IS NULL ORDER BY likes_count DESC LIMIT 0, 9";
 $query = sqlite_query($handle, $q);
 $most_popular = sqlite_fetch_all($query, SQLITE_ASSOC);
 $most_popular = array_reverse($most_popular);

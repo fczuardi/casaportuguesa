@@ -7,7 +7,10 @@ $db = "fotos.sqlite";
 // $db_table_name = 'itatibafoo';
 $db_table_name = 'casalusa';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
+$q = "SELECT * FROM $db_table_name WHERE blacklisted_photo IS NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+if ($_GET["admin"] == yes){
 $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+}
 $query = sqlite_query($handle, $q);
 $result = sqlite_fetch_all($query, SQLITE_ASSOC);
 echo "<ol>";
@@ -22,7 +25,8 @@ foreach ($result as $entry) {
             <span>
               <i class="destaque-icon"></i>
               <i class="blacklist-photo-icon"></i>
-              <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" />
+              <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" '.
+              (($entry["blacklisted_photo"] == '1')?'checked=checked':'') . '/>
               <i class="blacklist-user-icon"></i>
               <input type="checkbox" name="blacklisted-users[' . $entry["username"] . ']" />
             </span>

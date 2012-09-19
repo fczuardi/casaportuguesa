@@ -40,7 +40,8 @@ $q = "CREATE TABLE $db_table_name (
     featured INTEGER,
     featured_time DATETIME,
     photo_id TEXT UNIQUE,
-    user_id TEXT
+    user_id TEXT,
+    blacklisted_photo INTEGER
     )";
 $ok = sqlite_exec($handle, $q, $error);
 
@@ -60,7 +61,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
         var_dump($photo_data);
       }else{
         $q = "INSERT OR REPLACE INTO
-                      $db_table_name(  id, featured, featured_time,
+                      $db_table_name(  id, featured, featured_time, blacklisted_photo,
                       username,
                       link,
                       likes_count,
@@ -71,6 +72,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
               VALUES((select id from $db_table_name where photo_id = '$photo_id') ,
                      (select featured from $db_table_name where photo_id = '$photo_id') ,
                      (select featured_time from $db_table_name where photo_id = '$photo_id') ,
+                     (select blacklisted_photo from $db_table_name where photo_id = '$photo_id') ,
                       '$username',
                       '$link',
                       '$likes_count',
@@ -80,6 +82,7 @@ function updateDB($instagram_response, $handle, $db_table_name){
                       '$user_id');";
         $ok = sqlite_exec($handle, $q, $error);
         if(!$ok){
+          var_dump($error);
           echo "<hr>";
           var_dump($q);
           die();

@@ -28,9 +28,6 @@ $db = "fotos.sqlite";
 $db_table_name = 'casalusa';
 // $db_table_name = 'itatibafoo';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
-$q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
-$query = sqlite_query($handle, $q);
-$recent = sqlite_fetch_all($query, SQLITE_ASSOC);
 
 $q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 $query = sqlite_query($handle, $q);
@@ -67,8 +64,8 @@ $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
       <div id="main">
           <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  //clean old featured flags
   if (count($featured) > 0){
-    //clean old featured flags
     $old_featured_ids = array();
     foreach ($featured as $old_featured) {
       $old_featured_ids[] = "'". $old_featured["id"] . "'";
@@ -77,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $q = "UPDATE $db_table_name SET featured=NULL WHERE id IN($old_featured_list)";
     $ok = sqlite_exec($handle, $q, $error);
   }
-
   $q = "";
   foreach ($_POST['destaques'] as $key => $photo_id) {
     if ($photo_id == ''){
@@ -93,8 +89,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $ok = sqlite_exec($handle, $q, $error);
   }
 
+  if (strlen($_POST["recent_photo_ids"]) > 2){
+    //clean old blocked flags
+    $recent_photo_ids = "'" . implode("','", explode(",", $_POST["recent_photo_ids"])) . "'";
 
+    $q = "SELECT * FROM $db_table_name
+          WHERE photo_id IN ($recent_photo_ids)
+          AND blacklisted_photo IS NOT NULL";
+    $query = sqlite_query($handle, $q);
+    $blocked = sqlite_fetch_all($query, SQLITE_ASSOC);
+    if (count($blocked) > 0){
+      $old_blocked_ids = array();
+      foreach ($blocked as $old_blocked) {
+        $old_blocked_ids[] = "'". $old_blocked["id"] . "'";
+      }
+      $old_blocked_list = implode(',', $old_blocked_ids);
+      $q = "UPDATE $db_table_name SET blacklisted_photo=NULL WHERE id IN($old_blocked_list)";
+      $ok = sqlite_exec($handle, $q, $error);
+    }
+    //re-add the blocked flags
+    $q = "";
+    if($_POST['blacklisted-photos']){
+      foreach ($_POST['blacklisted-photos'] as $photo_id => $status) {
+        $q .= "UPDATE $db_table_name
+               SET blacklisted_photo='1'
+              WHERE photo_id = '$photo_id';";
+      }
+      if ($q != ""){
+        $ok = sqlite_exec($handle, $q, $error);
+      }
+    }
+  }
 }
+//make the query for recent photos
+$q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+$query = sqlite_query($handle, $q);
+$recent = sqlite_fetch_all($query, SQLITE_ASSOC);
+
 $q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY featured";
 $query = sqlite_query($handle, $q);
 $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
@@ -132,6 +163,7 @@ for($index=0; $index<8; $index++){
 }
           ?>
         </ol>
+        <input type="hidden" id="recent_photo_ids" name="recent_photo_ids" />
         <p class="primeiro"><a href="#" id="submit_link">Clique aqui para Atualizar</a></p>
         <p>Para definir um destaque, copie o ID de qualquer foto abaixo e cole num campo acima.</p>
         <p>Você pode <span class="amarelo">bloquear uma foto</span> ou <span class="vermelho">bloquear todas as fotos de um usuário</span>.</p>
@@ -148,7 +180,8 @@ foreach ($recent as $entry) {
             <span>
               <i class="destaque-icon"></i>
               <i class="blacklist-photo-icon"></i>
-              <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" />
+              <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" '.
+              (($entry["blacklisted_photo"] == '1')?'checked=checked':'') . '/>
               <i class="blacklist-user-icon"></i>
               <input type="checkbox" name="blacklisted-users[' . $entry["username"] . ']" />
             </span>
