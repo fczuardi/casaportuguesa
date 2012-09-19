@@ -8,8 +8,10 @@ if(is_null($tag)) {
 $tags = array('umacasaportuguesacomcerteza', 'casalusa');
 if (in_array($tag, $tags)){
   $db_table_name = 'casalusa';
+  $db_users_table_name = 'casalusa_users';
 } else{
   $db_table_name = 'itatibafoo';
+  $db_users_table_name = 'itatibafoo_users';
 }
 $min_tag_id_filename = "$db_table_name.min_tag_id.txt";
 $page = $_GET['page'];
@@ -45,11 +47,33 @@ $q = "CREATE TABLE $db_table_name (
     )";
 $ok = sqlite_exec($handle, $q, $error);
 
-function updateDB($instagram_response, $handle, $db_table_name){
+
+//create table if it is not there
+$q = "CREATE TABLE $db_users_table_name (
+      id INTEGER PRIMARY KEY,
+      username TEXT UNIQUE,
+      blocked INTEGER,
+      website TEXT,
+      bio TEXT,
+      profile_picture TEXT,
+      full_name TEXT,
+      user_id TEXT
+    )";
+$ok = sqlite_exec($handle, $q, $error);
+
+
+
+function updateDB($instagram_response, $handle, $db_table_name, $db_users_table_name){
     $results = json_decode($instagram_response, true);
 
     foreach ($results["data"] as $photo_data) {
       $username = sqlite_escape_string($photo_data["user"]["username"]);
+      $user_website = sqlite_escape_string($photo_data["user"]["website"]);
+      $user_bio = sqlite_escape_string($photo_data["user"]["bio"]);
+      $user_profile_picture = sqlite_escape_string($photo_data["user"]["profile_picture"]);
+      $user_full_name = sqlite_escape_string($photo_data["user"]["full_name"]);
+      $user_id = sqlite_escape_string($photo_data["user"]["id"]);
+
       $link = sqlite_escape_string($photo_data["link"]);
       $likes_count = $photo_data["likes"]["count"];
       $image_url = sqlite_escape_string($photo_data["images"]["low_resolution"]["url"]);
@@ -87,13 +111,32 @@ function updateDB($instagram_response, $handle, $db_table_name){
           var_dump($q);
           die();
         }
+
+        $q = "INSERT OR REPLACE INTO
+                      $db_users_table_name(id, blocked, website, bio, profile_picture, full_name, user_id, username)
+              VALUES( (select id from $db_users_table_name where user_id = '$user_id') ,
+                      (select blocked from $db_users_table_name where user_id = '$user_id') ,
+                      '$user_website',
+                      '$user_bio',
+                      '$user_profile_picture',
+                      '$user_full_name',
+                      '$user_id',
+                      '$username'
+                    );";
+        $ok = sqlite_exec($handle, $q, $error);
+        if(!$ok){
+          var_dump($error);
+          echo "<hr>";
+          var_dump($q);
+          die();
+        }
       }
     };
 }
 
   $instagram_response = file_get_contents($next_url);
   if ($instagram_response){
-    updateDB($instagram_response, $handle, $db_table_name);
+    updateDB($instagram_response, $handle, $db_table_name, $db_users_table_name);
     try{
       $results = json_decode($instagram_response, true);
       if ( ($_GET['partial'] == 'yes') && ( $page == 1) ){

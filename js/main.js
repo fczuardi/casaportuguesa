@@ -49,7 +49,6 @@ function updateCounter(miliseconds_left){
     $(this).html(digits[i]);
   });
   if ((digits[0] == 0)&&(digits[1] == 0)&&(digits[2] == 0)&&(digits[3] == 0)){
-    console.log('BOOM');
     $('#counter-msg').html('a qualquer momento as primeiras fotos aparecerão aqui, fique ligado');
     setTimeout(function(){
       window.location.href = window.location.href;
@@ -80,7 +79,6 @@ function hideMessagePopup(){
   popup.css('z-index', 0);
   popup.addClass('closed');
   popup.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", showPopupLauncher);
-  event.stopPropagation();
 }
 function showPopupLauncher(){
   var popup = $('#message-popup');
@@ -94,7 +92,6 @@ function hidePopupLauncher(){
   popup_launcher.css('z-index', 0);
   popup_launcher.addClass('closed');
   popup_launcher.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", showMessagePopup);
-  event.stopPropagation();
 }
 function dismissPopup(event){
   $('#content aside').removeClass('opened');

@@ -4,7 +4,7 @@ Lançamento
 backend
 ------
 - OK - admin blacklist para fotos
-- admin blacklist para usuarios
+- OK - admin blacklist para usuarios
 - terminar o cron que passa por todas as fotos e atualiza os likes
 - trigger para mudança da home na primeira foto do usuario:antoniograssi
   - id = 3229331

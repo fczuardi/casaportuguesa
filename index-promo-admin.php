@@ -21,11 +21,14 @@
   -->
   </head>
 <?php
+// ini_set('display_errors', '1');
+
 $page = 1;
 $page_size = 28;
 $page_begin = ($page-1) * $page_size;
 $db = "fotos.sqlite";
 $db_table_name = 'casalusa';
+$db_users_table_name = 'casalusa_users';
 // $db_table_name = 'itatibafoo';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
 
@@ -64,6 +67,8 @@ $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
       <div id="main">
           <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+/*------ Showcases --------------*/
   //clean old featured flags
   if (count($featured) > 0){
     $old_featured_ids = array();
@@ -90,9 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   }
 
   if (strlen($_POST["recent_photo_ids"]) > 2){
+
+/*------ Blacklisted photos --------------*/
     //clean old blocked flags
     $recent_photo_ids = "'" . implode("','", explode(",", $_POST["recent_photo_ids"])) . "'";
-
     $q = "SELECT * FROM $db_table_name
           WHERE photo_id IN ($recent_photo_ids)
           AND blacklisted_photo IS NOT NULL";
@@ -119,22 +125,67 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $ok = sqlite_exec($handle, $q, $error);
       }
     }
+
+/*------ Blacklisted users --------------*/
+    //clean old blocked users
+    $affected_users = "'" . implode("','", explode(",", $_POST["affected_users"])) . "'";
+    $q = "SELECT * FROM $db_users_table_name
+          WHERE user_id IN ($affected_users)
+          AND blocked IS NOT NULL";
+    $query = sqlite_query($handle, $q);
+    $blocked = sqlite_fetch_all($query, SQLITE_ASSOC);
+    if (count($blocked) > 0){
+      $old_blocked_users = array();
+      foreach ($blocked as $old_blocked) {
+        $old_blocked_users[] = "'". $old_blocked["id"] . "'";
+      }
+      $old_blocked_list = implode(',', $old_blocked_users);
+      $q = "UPDATE $db_users_table_name SET blocked=NULL WHERE id IN($old_blocked_list)";
+      $ok = sqlite_exec($handle, $q, $error);
+    }
+
+    //re-add the blocked flags
+    $q = "";
+    if($_POST['blacklisted-users']){
+      foreach ($_POST['blacklisted-users'] as $user_id => $status) {
+        $q .= "UPDATE $db_users_table_name
+               SET blocked='1'
+              WHERE user_id = '$user_id';";
+      }
+      if ($q != ""){
+        $ok = sqlite_exec($handle, $q, $error);
+      }
+    }
   }
+
+
 }
-//make the query for recent photos
+//query for recent photos
 $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 $query = sqlite_query($handle, $q);
 $recent = sqlite_fetch_all($query, SQLITE_ASSOC);
 
+//query for featured photos
 $q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY featured";
 $query = sqlite_query($handle, $q);
 $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 
-
+//query for popular photos
 $q = "SELECT * FROM $db_table_name ORDER BY likes_count DESC LIMIT 0, 9";
 $query = sqlite_query($handle, $q);
 $most_popular = sqlite_fetch_all($query, SQLITE_ASSOC);
 $most_popular = array_reverse($most_popular);
+
+//query for blacklisted users
+$q = "SELECT * FROM $db_users_table_name WHERE blocked IS NOT NULL";
+$query = sqlite_query($handle, $q);
+$blacklisted_users_results = sqlite_fetch_all($query, SQLITE_ASSOC);
+$blacklisted_users = array();
+if (count($blacklisted_users_results) > 0){
+  foreach ($blacklisted_users_results as $user){
+    array_push($blacklisted_users, $user["user_id"]);
+  }
+}
 
 $home_showcase = array();
 
@@ -164,6 +215,7 @@ for($index=0; $index<8; $index++){
           ?>
         </ol>
         <input type="hidden" id="recent_photo_ids" name="recent_photo_ids" />
+        <input type="hidden" id="affected_users" name="affected_users" />
         <p class="primeiro"><a href="#" id="submit_link">Clique aqui para Atualizar</a></p>
         <p>Para definir um destaque, copie o ID de qualquer foto abaixo e cole num campo acima.</p>
         <p>Você pode <span class="amarelo">bloquear uma foto</span> ou <span class="vermelho">bloquear todas as fotos de um usuário</span>.</p>
@@ -171,7 +223,11 @@ for($index=0; $index<8; $index++){
         <ol class="recentes">
           <?php
 foreach ($recent as $entry) {
-  echo '<li data-username="'.$entry["username"].'" data-photo_id="'.$entry["photo_id"].'" data-featured="'.$entry["featured"].'">
+  echo '<li data-username="'.$entry["username"].
+            '" data-photo_id="'.$entry["photo_id"].
+            '" data-featured="'.$entry["featured"].
+            '" data-user_id="'.$entry["user_id"].
+            '">
           <a href="' . $entry["link"] . '"><img src="'
                      . $entry["image_url"] . '"></img></a>
           <fieldset>
@@ -183,7 +239,8 @@ foreach ($recent as $entry) {
               <input type="checkbox" name="blacklisted-photos[' . $entry["photo_id"] . ']" '.
               (($entry["blacklisted_photo"] == '1')?'checked=checked':'') . '/>
               <i class="blacklist-user-icon"></i>
-              <input type="checkbox" name="blacklisted-users[' . $entry["username"] . ']" />
+              <input class="block-user" type="checkbox" name="blacklisted-users[' . $entry["user_id"] . ']" '.
+              ((in_array($entry["user_id"], $blacklisted_users))?'checked=checked':'') . '/>
             </span>
           </fieldset>
         </li>';

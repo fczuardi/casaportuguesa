@@ -25,15 +25,9 @@ $page_size = 28;
 $page_begin = ($page-1) * $page_size;
 $db = "fotos.sqlite";
 $db_table_name = 'casalusa';
+$db_users_table_name = 'casalusa_users';
 // $db_table_name = 'itatibafoo';
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
-$q = "SELECT * FROM $db_table_name WHERE blacklisted_photo IS NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
-$query = sqlite_query($handle, $q);
-$recent = sqlite_fetch_all($query, SQLITE_ASSOC);
-
-$q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY created_time DESC LIMIT $page_begin, $page_size";
-$query = sqlite_query($handle, $q);
-$featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 ?>
   <body>
     <!--[if lt IE 7]>
@@ -65,22 +59,47 @@ $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 			</div> -->
       <div id="main">
 <?php
-$q = "SELECT * FROM $db_table_name WHERE featured IS NOT NULL ORDER BY featured";
+//query for blacklisted users
+$q = "SELECT * FROM $db_users_table_name WHERE blocked IS NOT NULL";
+$query = sqlite_query($handle, $q);
+$blacklisted_users_results = sqlite_fetch_all($query, SQLITE_ASSOC);
+$blacklisted_users = array();
+if (count($blacklisted_users_results) > 0){
+  foreach ($blacklisted_users_results as $user){
+    array_push($blacklisted_users, $user["user_id"]);
+  }
+}
+$blacklisted_users_list = "'" . implode("','", $blacklisted_users) . "'";
+
+//query for recent
+$q = "SELECT * FROM $db_table_name WHERE
+      blacklisted_photo IS NULL AND
+      user_id NOT IN($blacklisted_users_list)
+      ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+$query = sqlite_query($handle, $q);
+$recent = sqlite_fetch_all($query, SQLITE_ASSOC);
+
+//query for featured
+$q = "SELECT * FROM $db_table_name WHERE
+      featured IS NOT NULL
+      ORDER BY featured";
 $query = sqlite_query($handle, $q);
 $featured = sqlite_fetch_all($query, SQLITE_ASSOC);
 
-
-$q = "SELECT * FROM $db_table_name  WHERE blacklisted_photo IS NULL ORDER BY likes_count DESC LIMIT 0, 9";
+//query for most liked
+$q = "SELECT * FROM $db_table_name WHERE
+      blacklisted_photo IS NULL AND
+      user_id NOT IN($blacklisted_users_list)
+      ORDER BY likes_count DESC LIMIT 0, 9";
 $query = sqlite_query($handle, $q);
 $most_popular = sqlite_fetch_all($query, SQLITE_ASSOC);
 $most_popular = array_reverse($most_popular);
 
+//home_showcase is featured combined with most liked (10 photos)
 $home_showcase = array();
-
 foreach ($featured as $featured_photo){
   $home_showcase[$featured_photo["featured"]-1] = $featured_photo;
 }
-
 for($i=0; $i<8; $i++){
   if(!$home_showcase[$i]){
     $home_showcase[$i] = array_pop($most_popular);
