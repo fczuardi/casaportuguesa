@@ -96,7 +96,7 @@ for($index=0; $index<8; $index++){
     $id_to_display = $entry["photo_id"];
   }
   $class = ($index == 0) ? 'class="first"':'';
-  echo '<li '. $class .'><a href="' . $entry["link"] . '"><img src="'. $entry["image_url"].'"></img><span class="likes_count">'. $entry["likes_count"] .'</span></a></li>';
+  echo '<li '. $class .'><a target="_blank" href="' . $entry["link"] . '"><img src="'. $entry["image_url"].'"></img><span class="likes_count">'. $entry["likes_count"] .'</span></a></li>';
 }
           ?>
 	      </ol>
@@ -105,7 +105,7 @@ for($index=0; $index<8; $index++){
 	      <ol class="recentes">
           <?php
 foreach ($recent as $entry) {
-  echo '<li><a href="' . $entry["link"] . '"><img src="'
+  echo '<li><a target="_blank" href="' . $entry["link"] . '"><img src="'
                        . $entry["image_url"] . '"></img></a></li>';
 }
           ?>

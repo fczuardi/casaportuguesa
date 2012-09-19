@@ -9,7 +9,7 @@ frontend
 - OK - [bug] mouseover esta variando conforme tamanho da janela
 - OK - [bug] algumas fotos do pangeiadedois estavam sem link: https://groups.google.com/forum/?fromgroups=#!topic/instagram-api-developers/LgrXLej4kDU
 - OK - [home] exibir numero de likes no hover das fotos de destaque
-
+- OK - target blank nos links para instagram
 
 
 backend
