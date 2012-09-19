@@ -1,16 +1,6 @@
 Lançamento
 ====================
 
-backend
-------
-- OK - admin blacklist para fotos
-- OK - admin blacklist para usuarios
-- terminar o cron que passa por todas as fotos e atualiza os likes
-- trigger para mudança da home na primeira foto do usuario:antoniograssi
-  - id = 3229331
-  - primeiro destaque ja vai ser preenchido com a foto deste user
-- script para limpar fotos que não são mais acessíveis
-
 frontend
 ------
 - OK - [home-velha] contagem regressiva, ao chegar no zero deve mudar o texto para:
@@ -20,6 +10,18 @@ frontend
 - OK - [bug] algumas fotos do pangeiadedois estavam sem link: https://groups.google.com/forum/?fromgroups=#!topic/instagram-api-developers/LgrXLej4kDU
 - OK - [home] exibir numero de likes no hover das fotos de destaque
 - OK - target blank nos links para instagram
+- OK - estrelinhas apenas nas fotos que ja foram destaque algum dia
+
+backend
+------
+- OK - admin blacklist para fotos
+- OK - admin blacklist para usuarios
+
+- terminar o cron que passa por todas as fotos e atualiza os likes
+- trigger para mudança da home na primeira foto do usuario:antoniograssi
+  - id = 3229331
+  - primeiro destaque ja vai ser preenchido com a foto deste user
+- script para limpar fotos que não são mais acessíveis
 
 
 
