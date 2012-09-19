@@ -154,11 +154,14 @@ function checkScrollEnd(event){
 function recentPhotoHover(event){
   var li = $(this).parent('li');
   var li_offset = li.offset();
+  var ol_offset = $(this).parents('ol').offset();
   var over = $('#mouse-over');
   over.css('display', 'block');
   over.html(li.html());
+  console.log(ol_offset);
+  console.log(li_offset);
   over.css('top', li_offset['top'] - 252);
-  over.css('left', li_offset['left'] - 174);
+  over.css('left', li_offset['left'] - ol_offset['left'] - 87);
   // event.stopPropagation();
 }
 function closeHover(event){
