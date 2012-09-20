@@ -35,6 +35,9 @@ function paginationLoaded(){
   $('.recentes li img').bind('load', 'error', recentImageLoaded);
   $('#mouse-over').mouseout(closeHover);
   $('.recentes li input').click(itemUpdated);
+  $('.destaques textarea, .recentes li textarea').click(function(){
+    $(this).select();
+  });
 }
 $(document).ready(function() {
   $('#submit_link').click(submitForm);

@@ -11,6 +11,9 @@ frontend
 - OK - [home] exibir numero de likes no hover das fotos de destaque
 - OK - target blank nos links para instagram
 - OK - estrelinhas apenas nas fotos que ja foram destaque algum dia
+- OK - modo brilha-estrelinha (showcase_only=yes)
+- OK - [admin] clique no textfield das recentes deve selecionar tudo automaticamente
+
 
 backend
 ------
@@ -21,43 +24,39 @@ backend
 - trigger para mudança da home na primeira foto do usuario:antoniograssi
   - id = 3229331
   - primeiro destaque ja vai ser preenchido com a foto deste user
-- script para limpar fotos que não são mais acessíveis
-
-
 
 Locaweb
 -------
-- por senha no arquivo do phpliteadmin
-- bug do heart.png (abrir pedido)
+- OK - REMOVI - por senha no arquivo do phpliteadmin
 
 
-
-
-
+-------------------------------------------------------------------------------
 
 Next
 =====
 
 frontend
 ---------
-- [admin] clique no textfield das recentes deve selecionar tudo automaticamente
 
 
 backend
 -------
+- script para limpar fotos que não são mais acessíveis
 - real time ajax polling para as recentes enquanto a pagina está aberta
 - pensar no fim da promoção
   - testar 5k requests no menor tempo possivel
   - parar o cron pelo menos 1 hora antes da paulada final
 
-
-
-
+Locaweb
+-------
+- bug do heart.png (abrir pedido)
 
 Limbo
 =====
 - logo da Funarte (futuro próximo)
 - fazer layout de pop-up bonitinho com a frase atual + "De 19 de Setembro de 2012 até 30 de Janeiro de 2013."
+
+-------------------------------------------------------------------------------
 
 
 
