@@ -6,11 +6,18 @@ ini_set('display_errors', '0');
    $mtime = $mtime[1] + $mtime[0];
    $starttime = $mtime;
 
-$db = "fotos.sqlite";
+// var_dump(__FILE__);
+// var_dump($_SERVER['PATH_TRANSLATED']);
+// var_dump($_SERVER['PATH_TRANSLATED']);
+// var_dump(strrpos($_SERVER['PATH_TRANSLATED'], '/'));
+$casaportuguesa_path = substr(__FILE__, 0, -strlen(substr($_SERVER['PATH_TRANSLATED'], strrpos($_SERVER['PATH_TRANSLATED'], '/'))));
+var_dump($casaportuguesa_path);
+
+$db = "$casaportuguesa_path/fotos.sqlite";
 $tags = array('umacasaportuguesacomcerteza', 'casalusa');
 $db_table_name = 'casalusa';
 $db_users_table_name = 'casalusa_users';
-$client_id = file_get_contents("clientID.txt");
+$client_id = file_get_contents("$casaportuguesa_path/clientID.txt");
 $photos_to_remove = array();
 
 $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(sqlite_last_error($handle)));
