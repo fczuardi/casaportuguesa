@@ -49,10 +49,10 @@ function updateCounter(miliseconds_left){
     $(this).html(digits[i]);
   });
   if ((digits[0] == 0)&&(digits[1] == 0)&&(digits[2] == 0)&&(digits[3] == 0)){
-    $('#counter-msg').html('a qualquer momento as primeiras fotos aparecerão aqui, fique ligado');
-    setTimeout(function(){
-      window.location.href = window.location.href;
-    }, 10*1000);
+    // $('#counter-msg').html('a qualquer momento as primeiras fotos aparecerão aqui, fique ligado');
+    // setTimeout(function(){
+    //   window.location.href = window.location.href;
+    // }, 10*1000);
   }
 }
 
