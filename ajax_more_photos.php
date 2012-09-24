@@ -27,14 +27,18 @@ if ($_GET["admin"] == yes){
     $q = "SELECT * FROM $db_table_name WHERE
           blacklisted_photo IS NULL AND
           user_id NOT IN($blacklisted_users_list) AND
-          featured_time IS NOT NULL
-          ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+          featured_time IS NOT NULL";
   }else{
     $q = "SELECT * FROM $db_table_name WHERE
           blacklisted_photo IS NULL AND
-          user_id NOT IN($blacklisted_users_list)
-          ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+          user_id NOT IN($blacklisted_users_list)";
   }
+  if($_GET['order_by']=="likes"){
+    $q .= "ORDER BY likes_count DESC LIMIT $page_begin, $page_size";
+  }else{
+    $q .= "ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+  }
+
 }
 $query = sqlite_query($handle, $q);
 $result = sqlite_fetch_all($query, SQLITE_ASSOC);

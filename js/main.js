@@ -147,6 +147,9 @@ function loadNextPhotoPage(url){
     if (window.location.search.indexOf('showcase_only=yes') != -1){
       url += "&showcase_only=yes";
     }
+    if (window.location.search.indexOf('order_by=likes') != -1){
+      url += "&order_by=likes";
+    }
   }
   expectedImages +=28;
   $.get(url,function(data) {
