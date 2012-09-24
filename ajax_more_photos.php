@@ -1,5 +1,6 @@
 <?php
-$page = $_GET["page"];
+// ini_set('display_errors', '1');
+$page = isset($_GET["page"])?$_GET["page"]:NULL;
 $page_size = 28;
 $page_begin = ($page-1) * $page_size;
 $page_end = $page_begin + ($page_size-1);
@@ -20,7 +21,7 @@ if (count($blacklisted_users_results) > 0){
   }
 }
 $blacklisted_users_list = "'" . implode("','", $blacklisted_users) . "'";
-if ($_GET["admin"] == yes){
+if (isset($_GET["admin"]) && $_GET["admin"] == yes){
   $q = "SELECT * FROM $db_table_name ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 }else{
   if($_GET['showcase_only']=="yes"){
@@ -33,10 +34,10 @@ if ($_GET["admin"] == yes){
           blacklisted_photo IS NULL AND
           user_id NOT IN($blacklisted_users_list)";
   }
-  if($_GET['order_by']=="likes"){
-    $q .= "ORDER BY likes_count DESC LIMIT $page_begin, $page_size";
+  if(isset($_GET['order_by']) && $_GET['order_by']=="likes"){
+    $q .= " ORDER BY likes_count DESC LIMIT $page_begin, $page_size";
   }else{
-    $q .= "ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+    $q .= " ORDER BY created_time DESC LIMIT $page_begin, $page_size";
   }
 
 }
@@ -45,7 +46,7 @@ $result = sqlite_fetch_all($query, SQLITE_ASSOC);
 
 echo "<ol>";
 foreach ($result as $entry) {
-  if ($_GET["admin"] == yes){
+  if (isset($_GET["admin"]) && $_GET["admin"] == yes){
   echo '<li data-username="'.$entry["username"].
             '" data-photo_id="'.$entry["photo_id"].
             '" data-featured="'.$entry["featured"].

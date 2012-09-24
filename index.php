@@ -20,6 +20,8 @@
   -->
   </head>
 <?php
+// ini_set('display_errors', '1');
+
 $page = 1;
 $page_size = 28;
 $page_begin = ($page-1) * $page_size;
@@ -82,10 +84,10 @@ if($_GET['showcase_only']=="yes"){
         blacklisted_photo IS NULL AND
         user_id NOT IN($blacklisted_users_list)";
 }
-if($_GET['order_by']=="likes"){
-  $q .= "ORDER BY likes_count DESC LIMIT $page_begin, $page_size";
+if(isset($_GET['order_by']) && $_GET['order_by']=="likes"){
+  $q .= " ORDER BY likes_count DESC LIMIT $page_begin, $page_size";
 }else{
-  $q .= "ORDER BY created_time DESC LIMIT $page_begin, $page_size";
+  $q .= " ORDER BY created_time DESC LIMIT $page_begin, $page_size";
 }
 $query = sqlite_query($handle, $q);
 $recent = sqlite_fetch_all($query, SQLITE_ASSOC);
@@ -112,7 +114,7 @@ foreach ($featured as $featured_photo){
   $home_showcase[$featured_photo["featured"]-1] = $featured_photo;
 }
 for($i=0; $i<8; $i++){
-  if(!$home_showcase[$i]){
+  if(!isset($home_showcase[$i])){
     $home_showcase[$i] = array_pop($most_popular);
   }
 }
