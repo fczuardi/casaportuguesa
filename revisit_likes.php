@@ -110,7 +110,7 @@ foreach ($tags as $tag) {
       updateDB($instagram_response, $handle, $db_table_name, $db_users_table_name, $photos_to_remove);
       try{
         $results = json_decode($instagram_response, true);
-        $next_url = $results["pagination"]["next_url"];
+        $next_url = isset($results["pagination"]["next_url"]) ? $results["pagination"]["next_url"] : NULL;
       }catch(Exception $e){
         echo "\nPHP-INSTAGRAM-RESPONSE-ERROR-------
               \n$e
