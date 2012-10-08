@@ -154,6 +154,7 @@ foreach ($recent as $entry) {
         </aside>
         <aside id="message-popup" class="closed">
           <h1>Qual é a sua imagem<br>da casa portuguesa?</h1>
+          <iframe src="http://player.vimeo.com/video/49256328" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
           <h2>
             Fotografe com o Instagram e use a tag
             <span class="tag">#umacasaportuguesacomcerteza</span> ou

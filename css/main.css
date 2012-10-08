@@ -439,8 +439,8 @@ header nav ul li.external:hover{
   background-position: 0px -8px;
 }
 #content #message-popup{
-  left:569px;
-  width:397px;
+  left:482px;
+  width:510px;
   padding-bottom: 22px;
   padding-left: 36px;
 }
@@ -448,7 +448,7 @@ header nav ul li.external:hover{
   top:-60px;
 }
 #content #message-popup.closed{
-  top:-389px;
+  top:-800px;
 }
 #content #message-popup h1{
   font-size: 36px;
@@ -463,6 +463,10 @@ header nav ul li.external:hover{
   letter-spacing: 1px;
   color:#97f8c4;
 }
+#content #message-popup iframe{
+  margin-top: 28px;
+}
+
 #content #popup-opener p a,
 #content #message-popup .tag{
   color:#ffffff;
@@ -475,7 +479,7 @@ header nav ul li.external:hover{
 #content #message-popup .close-button{
   position: absolute;
   top:-13px;
-  left:438px;
+  left:558px;
   width:20px;
   height: 10px;
   background-image: url(../img/sprite_X_V.png);
