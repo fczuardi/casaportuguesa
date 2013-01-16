@@ -161,7 +161,7 @@ foreach ($recent as $entry) {
             pode ser selecionada para participar das exposições e/ou ser premiada.
           </h2>
           <p>
-            Comece a fotografar e postar já.<br>A partir de 20 de Setembro suas fotos estarão aqui.
+            Concurso prorrogado até dia 15 de fevereiro.
           </p>
           <p class="close-button"><a href="#">fechar</a></p>
         </aside>
@@ -194,15 +194,15 @@ foreach ($recent as $entry) {
         </aside>
         <aside id="regulamento">
           <section>
-            <h1><a href="./downloads/Regulamento_Uma_Casa_Portuguesa_com_Certeza.pdf">Baixe o Regulamento</a></h1>
+            <h1><a href="./downloads/Regulamento_Uma_Casa_Portuguesa_com_Certeza_prorrogado.pdf">Baixe o Regulamento</a></h1>
             <p>
-              <a href="./downloads/Regulamento_Uma_Casa_Portuguesa_com_Certeza.pdf">Clique aqui</a> e baixe o regulamento para guardar, imprimir ou ler mais tarde.
+              <a href="./downloads/Regulamento_Uma_Casa_Portuguesa_com_Certeza_prorrogado.pdf">Clique aqui</a> e baixe o regulamento para guardar, imprimir ou ler mais tarde.
             </p>
               <h1>REGULAMENTO</h1>
               <p>Tomando por tema um dos aspectos da cultura portuguesa mais marcados no imaginário brasileiro, imortalizado pelo cancioneiro popular: a casa portuguesa, a proposta deste projeto é produzir uma correspondência visual entre fotógrafos brasileiros e portugueses.</p>
               <p>A dita casa portuguesa, naturalmente, vem se reinventando continuamente, seja por estar no Brasil seja por estar em Portugal, mas guarda uma certa matriz que, temos certeza, servirá como o condutor da identidade portuguesa. A casa portuguesa, tomada como tema, pode ser vista de dentro, de fora, e também situada no seu entorno. O que buscamos é estimular uma percepção e/ou uma reflexão sobre o que seria esta casa no imaginário de portugueses e de brasileiros.</p>
               <h1>1. PROJETO</h1>
-              <p>1.1 O presente concurso tem por objetivo convidar fotógrafos amadores e profissionais a produzirem imagens que retratem a casa portuguesa, no Brasil e em Portugal no espírito descrito no parágrafo inicial, através de “smartphones” de qualquer fabricante, utilizando o aplicativo Instagram. Os uploads com a tag #umacasaportuguesacomcerteza ou #casalusa de fotos no Instagram serão apresentadas diariamente, de 20 de setembro de 2012 a 30 de janeiro de 2013, no site do projeto www.umacasaportuguesacomcerteza.com;</p>
+              <p>1.1 O presente concurso tem por objetivo convidar fotógrafos amadores e profissionais a produzirem imagens que retratem a casa portuguesa, no Brasil e em Portugal no espírito descrito no parágrafo inicial, através de “smartphones” de qualquer fabricante, utilizando o aplicativo Instagram. Os uploads com a tag #umacasaportuguesacomcerteza ou #casalusa de fotos no Instagram serão apresentadas diariamente, de 20 de setembro de 2012 a 15 de fevereiro de 2013, no site do projeto www.umacasaportuguesacomcerteza.com;</p>
               <p>1.2 Os participantes devem ser residentes no Brasil ou em Portugal;</p>
               <p>1.3 Para efeito da entrega do prêmio, estão habilitados a participar deste concurso maiores de 18 anos ou menores com autorização expressa dos responsáveis;</p>
               <p>1.4 O participante deverá ser usuário - ou passar a ser - do Instagram [www.instagram.com] e do Facebook [www.facebook.com];</p>
@@ -218,14 +218,14 @@ foreach ($recent as $entry) {
               <p>1.12 Os curadores irão selecionar as 50 fotografias que irão participar das exposições Uma Casa portuguesa com Certeza, intinerantes no Brasil e em Portugal. Esta seleção vai observar os votos populares, mas não está obrigada a, necessariamente, incluir as imagens ganhadoras do voto popular na seleção final a ser exposta;</p>
               <p>1.13 A exposição acontecerá no Brasil e, simultaneamente, em Portugal e terá uma intinerância em cada país;</p>
               <p>1.14 A organização reserva o direito de alterar estas regras a qualquer momento se isso for inevitável, devido à força maior;</p>
-              <p>1.15 Cronograma: envio de imagens de 20 de setembro a 30 de janeiro e divulgação do resultado dia 28 de fevereiro.</p>
+              <p>1.15 Cronograma: envio de imagens de 20 de setembro a 15 de fevereiro e divulgação do resultado dia 15 de março.</p>
               <h1>2. REGRAS DO JOGO DA AÇÃO</h1>
               <p>2.1 Para participar, o candidato deverá obrigatoriamente ter contas no Instagram [www.instagram.com] e no Facebook [www.facebook.com];</p>
               <p>2.2 Para participar, o candidato deverá curtir a funpage do Facebook do projeto http://www.facebook.com/casaportuguesacomcerteza;</p>
               <p>2.3 Não serão aceitas imagens de cunho pornográfico, racista ou discriminatório de qualquer espécie;</p>
               <p>2.4 O proponente deverá formatar sua fotografia obedecendo às exigências do regulamento.</p>
               <h1>3. ENVIO DURANTE A AÇÃO</h1>
-              <p>3.1 As imagens deverão ser ʻpostadasʼ no Instagram com a hashtag #umacasaportuguesacomcerteza ou #casalusa de 20 de setembro até 30 de janeiro de 2013, às 23h59 do horário de Brasília;</p>
+              <p>3.1 As imagens deverão ser ʻpostadasʼ no Instagram com a hashtag #umacasaportuguesacomcerteza ou #casalusa de 20 de setembro até 15 de fevereiro de 2013, às 23h59 do horário de Brasília;</p>
               <p>3.2 Será permitido que o participante adicione outros hashtags além de #umacasaportuguesacomcerteza ou #casalusa para eventual busca.</p>
               <h1>4. DA SELEÇÃO PARA PRÊMIO</h1>
               <p>4.1 As fotografias recebidas pelo projeto Uma Casa portuguesa com Certeza passarão por duas etapas de avaliação: Habilitação e Análise;</p>
@@ -236,7 +236,7 @@ foreach ($recent as $entry) {
               <p>Juri de experts: análise pela comissão de avaliação formada por Milton Guran [FotoRio], Iatã Cannabrava [Paraty em Foco] e Ângela Ferreira e Rui Prata [Encontros da Imagem de Braga] e coordenado pelo Comissário geral do Ano do Brasil em Portugal. Neste caso, a análise das imagens se dará observando a qualidade e sensibilidade artística do participante e pertinência em relação ao tema.</p>
  
               <h1>5. DA DIVULGAÇÃO DO RESULTADO</h1>
-              <p>5.1 Os nomes dos premiados serão divulgados no dia 28 de fevereiro de 2013, no site www.umacasaportuguesacomcerteza.com;</p>
+              <p>5.1 Os nomes dos premiados serão divulgados no dia 15 de março de 2013, no site www.umacasaportuguesacomcerteza.com;</p>
               <p>5.2 Os proponentes cujas fotografias forem selecionadas para receber prêmio ou para as exposições receberão comunicados, via e-mail, com instruções para formalização da concordância quanto às condições do procedimento.</p>
               <h1>6. DOS PRÊMIOS</h1>
               <p>6.1 Serão um total de 4 [quatro] prêmios, 2 [dois] com júri popular e 2 [dois] com júri de experts, 2 [dois] para residentes no Brasil e 2 [dois] para residentes em Portugal;</p>
