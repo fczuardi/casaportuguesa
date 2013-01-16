@@ -41,14 +41,15 @@ $handle = sqlite_open($db) or die("Could not open database".sqlite_error_string(
         <div class="content">
           <h1 class="logo ir">Uma casa portuguesa com certeza</h1>
           <nav>
-            <ul>
-              <li><a href="#projeto"><span><b>sobre</b><br>o projeto</a></span></li>
-              <li><a href="#casa"><span><b>sobre</b><br>a casa<br>portuguesa</span></a></li>
-              <li><a href="#regulamento"><span><b>leia/baixe</b><br>o regulamento</span></a></li>
-              <li><a href="#coletivos"><span><b>coletivos</b><br>convidados</span></a></li>
-              <li><a href="#inauguracao"><span><b>inauguração</b><br>do projeto</span></a></li>
-              <li class="external"><a href="mailto:contato@umacasaportuguesacomcerteza.com"><span><b>fale</b><br>conosco</span></a></li>
-            </ul>
+						<ul>
+							<li><a href="#projeto"><span><b>sobre</b><br>o projeto</span></a></li>
+							<li><a href="#casa"><span><b>sobre</b><br>a casa<br>portuguesa</span></a></li>
+							<li><a href="#regulamento"><span><b>leia/baixe</b><br>o regulamento</span></a></li>
+							<li><a href="#coletivos"><span><b>coletivos</b><br>convidados</span></a></li>
+							<li><a href="#inauguracao"><span><b>inauguração</b><br>do projeto</span></a></li>
+							<li class="external"><a href="http://vimeo.com/49256328" target="_blank"><span><b>veja</b><br>a vinheta</span></a></li>
+							<li class="external"><a href="mailto:contato@umacasaportuguesacomcerteza.com"><span><b>fale</b><br>conosco</span></a></li>
+						</ul>
           </nav>
           <div id="instagram-icon"></div>
         <div>
