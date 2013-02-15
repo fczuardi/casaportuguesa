@@ -133,24 +133,25 @@ for($index=0; $index<8; $index++){
 }
           ?>
         </ol>
-        <style>
-        #main p.ultimo{
-          line-height:32px;
-          font-size:22px;
-        }
-        #main p.ultimo .tag{
-          color:#fff;
-        }
-        </style>
-        <p class="primeiro">Promoção encerrada</p>
-        <p class="ultimo" style="">Uma Casa portuguesa com Certeza encerra-se
-          com mais de 6 mil imagens marcadas com as hashtags
-          <span class="tag">#casalusa</span> e
-          <span class="tag">#umacasaportuguesacomcerteza</span>.
-          Os vencedores do concurso e os participantes das exposições em Lisboa
-          e no Rio de Janeiro serão anunciados no dia 10 de março.
-        </p>
-        <p class="ultimo" style="">O Estúdio Madalena e a FUNARTE agradecem a todos os fotógrafos que participaram do projeto.</p>
+      <style>
+#content #popup-opener, #content #message-popup {
+  background: none repeat scroll 0 0 rgba(238, 25, 65, 0.9);
+}
+#content #message-popup h2 {
+  color: #ffc8e1;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+#content #message-popup .tag {
+  color: #fff;
+}
+#main p.primeiro{
+  font-size: 23px;
+  padding-bottom: 27px;
+  margin-left: 0px !important;
+}
+      </style>
+        <p class="primeiro">O Estúdio Madalena e a FUNARTE agradecem a todos os fotógrafos que participaram do projeto.</p>
         <ol class="recentes">
           <?php
 foreach ($recent as $entry) {
@@ -164,6 +165,22 @@ foreach ($recent as $entry) {
 <!--
  -->
       </div> <!-- main -->
+        <aside id="popup-opener" class="closed">
+          <p>
+            <a href="#">Qual é a sua imagem da casa portuguesa?<i class="caret"></i></a>
+          </p>
+        </aside>
+        <aside id="message-popup" class="closed">
+          <h1>Uma Casa portuguesa com Certeza encerra-se com +de 6 mil imagens</h1>
+          <h2>
+            marcadas com as hashtags
+            <span class="tag">#casalusa</span> e
+            <span class="tag">#umacasaportuguesacomcerteza</span>.
+            Os vencedores do concurso e os participantes das exposições em
+            Lisboa e no Rio de Janeiro serão anunciados no dia 10 de março.
+          </h2>
+          <p class="close-button"><a href="#">fechar</a></p>
+        </aside>
         <aside id="share">
           <ul>
             <li class="facebook"><a href="https://www.facebook.com/umacasaportuguesacomcerteza" target="_blank">facebook</a></li>

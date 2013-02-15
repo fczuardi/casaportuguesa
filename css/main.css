@@ -528,15 +528,15 @@ header nav ul li.external:hover{
 }
 #content #projeto{
 /*458 .. 527*/
-  left: 444px;
+  left: 379px;
 }
 #content #casa{
 /*537 .. 620*/
-  left:521px;
+  left:458px;
 }
 #content #regulamento{
 /*630 .. 729*/
-  left:417px;
+  left:585px;
   width:585px;
   padding-top: 0px;
   padding-bottom: 30px;
@@ -548,7 +548,7 @@ header nav ul li.external:hover{
 /*739 .. 823*/
   padding-top: 20px;
   padding-bottom: 20px;
-  left: 569px;
+  left: 597px;
   width:405px;
 }
 #content #coletivos .foto{
