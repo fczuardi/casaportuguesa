@@ -173,11 +173,8 @@ foreach ($recent as $entry) {
         <aside id="message-popup" class="closed">
           <h1>Uma Casa portuguesa com Certeza encerra-se com +de 6 mil imagens</h1>
           <h2>
-            marcadas com as hashtags
-            <span class="tag">#casalusa</span> e
-            <span class="tag">#umacasaportuguesacomcerteza</span>.
             Os vencedores do concurso e os participantes das exposições em
-            Lisboa e no Rio de Janeiro serão anunciados no dia 10 de março.
+            Lisboa e no Rio de Janeiro serão anunciados no dia 20 de março.
           </h2>
           <p class="close-button"><a href="#">fechar</a></p>
         </aside>
